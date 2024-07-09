@@ -11,9 +11,9 @@ const HeaderWrapper = styled.header`
   left: 0;
   top: 0;
   width: 100vw;
-  background: rgba(245, 245, 247, 0.7); /* 반투명한 배경 설정 */
+  background: rgba(245, 245, 247, 0.7);
   -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px); /* 배경 블러 처리 */
+  backdrop-filter: blur(10px);
   padding: 1.5rem;
   height: 5rem;
   z-index: 10;
@@ -21,11 +21,22 @@ const HeaderWrapper = styled.header`
     props.isHidden ? "translateY(-5rem)" : "translateY(0)"};
   transition: transform 0.5s ease;
   -webkit-transition: transform 0.5s ease;
+  @media (min-width: 52.75rem) {
+    padding: 1.5rem 6rem;
+  }
 `
 
 const HeaderTitle = styled.a`
   font-weight: 700;
   font-size: 1.75rem;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.06);
+  }
+  transform-origin: center;
+  will-change: transform;
+  transition: 0.3s;
 `
 
 const MenuBar = styled.div`
@@ -33,7 +44,7 @@ const MenuBar = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 0.75rem;
-  @media (min-width: 700px) {
+  @media (min-width: 43.75rem) {
     gap: 1rem;
   }
 `
@@ -59,6 +70,15 @@ const MenuButton = styled.a`
       display: inline-block;
     }
   }
+
+  &:hover {
+    transform: scale(1.06);
+  }
+  transform-origin: center;
+  will-change: transform;
+  transition: 0.3s;
+
+  cursor: pointer;
 `
 
 const ModeSwitchButton = styled.button`
@@ -68,6 +88,15 @@ const ModeSwitchButton = styled.button`
   border-radius: 50%;
   background-color: black;
   color: white;
+
+  &:hover {
+    transform: scale(1.06);
+  }
+  transform-origin: center;
+  will-change: transform;
+  transition: 0.3s;
+
+  cursor: pointer;
 `
 
 const Header = () => {
