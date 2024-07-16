@@ -1,8 +1,8 @@
+// src/components/PostCard.js
 import React from "react"
-import styled, { keyframes } from "styled-components"
+import styled from "styled-components"
+import { Link } from "gatsby"
 import { truncateText } from "../../utils/truncateText"
-
-const text = `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`
 
 const CardWrapper = styled.div`
   display: flex;
@@ -71,16 +71,15 @@ const Detail = styled.p`
   color: #6e6e73;
 `
 
-const PostCard = () => {
+const PostCard = ({ to, title, date, tags, detail }) => {
   return (
-    <CardWrapper>
-      <Date>2024/06/07</Date>
-      <CardTitle>우리 서비스는 모바일 사절입니다 →</CardTitle>
+    <CardWrapper as={Link} to={to}>
+      <Date>{date}</Date>
+      <CardTitle>{title} →</CardTitle>
       <TagsWrapper>
-        <Tag>#네이버부스트캠프</Tag>
-        <Tag>#공부</Tag>
+        {tags && tags.map(tag => <Tag key={tag}>#{tag}</Tag>)}
       </TagsWrapper>
-      <Detail>{truncateText(text, 200)}</Detail>
+      <Detail>{truncateText(detail, 200)}</Detail>
     </CardWrapper>
   )
 }

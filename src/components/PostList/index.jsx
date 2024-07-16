@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-import Icon from "../Icon"
 import PostCard from "../PostCard"
+import { Link } from "gatsby"
 
 const Title = styled.h2`
   margin-top: 6rem;
@@ -23,15 +23,22 @@ const PostWrapper = styled.div`
   }
 `
 
-const PostList = () => {
+const PostList = ({ postInfo }) => {
   return (
     <>
       <Title>My Posts ↘</Title>
       <PostWrapper>
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
+        {postInfo &&
+          postInfo.map(({ node }) => (
+            <PostCard
+              key={node.id}
+              to={node.fields.slug}
+              title={node.frontmatter.title}
+              date={new Date(node.frontmatter.date).toLocaleDateString()}
+              tags={node.frontmatter.tags}
+              detail={node.excerpt}
+            />
+          ))}
       </PostWrapper>
     </>
   )

@@ -116,7 +116,7 @@ const Header = () => {
         isHidden.current = true
       }
       scrollY.current = window.scrollY
-    } // 100ms의 디바운스 적용
+    }
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)

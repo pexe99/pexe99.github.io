@@ -10,6 +10,8 @@ import { useStaticQuery, graphql } from "gatsby"
 import GlobalStyles from "../GlobalStyles"
 import Header from "./Header"
 import { Body } from "./Body"
+import { ThemeProvider } from "styled-components"
+import { light, dark } from "../../themes/colors"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
