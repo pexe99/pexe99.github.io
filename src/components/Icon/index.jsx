@@ -3,6 +3,7 @@ import SearchIcon from "./svgs/SearchIcon"
 import SeriesIcon from "./svgs/SeriesIcon"
 import TagsIcon from "./svgs/TagsIcon"
 import LightModeIcon from "./svgs/LightModeIcon"
+import DarkModeIcon from "./svgs/DarkModeIcon"
 import GithubIcon from "./svgs/GithubIcon"
 import InstagramIcon from "./svgs/InstagramIcon"
 import LinkedinIcon from "./svgs/LinkedinIcon"
@@ -17,6 +18,7 @@ const SVG_ICONS = {
   tags: TagsIcon,
   series: SeriesIcon,
   lightMode: LightModeIcon,
+  darkMode: DarkModeIcon,
   github: GithubIcon,
   instagram: InstagramIcon,
   linkedin: LinkedinIcon,
