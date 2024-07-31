@@ -1,39 +1,10 @@
 import React from "react"
-import SearchIcon from "./svgs/SearchIcon"
-import SeriesIcon from "./svgs/SeriesIcon"
-import TagsIcon from "./svgs/TagsIcon"
-import LightModeIcon from "./svgs/LightModeIcon"
-import DarkModeIcon from "./svgs/DarkModeIcon"
-import GithubIcon from "./svgs/GithubIcon"
-import InstagramIcon from "./svgs/InstagramIcon"
-import LinkedinIcon from "./svgs/LinkedinIcon"
-import YoutubeIcon from "./svgs/YoutubeIcon"
-import FacebookIcon from "./svgs/FacebookIcon"
-import EmailIcon from "./svgs/EmailIcon"
-import ThreadsIcon from "./svgs/ThreadsIcon"
-import ExternalIcon from "./svgs/ExternalIcon"
+import * as Icons from "react-icons/tb" // 여기에 다른 아이콘 라이브러리를 추가할 수 있습니다.
 
-const SVG_ICONS = {
-  search: SearchIcon,
-  tags: TagsIcon,
-  series: SeriesIcon,
-  lightMode: LightModeIcon,
-  darkMode: DarkModeIcon,
-  github: GithubIcon,
-  instagram: InstagramIcon,
-  linkedin: LinkedinIcon,
-  youtube: YoutubeIcon,
-  facebook: FacebookIcon,
-  email: EmailIcon,
-  threads: ThreadsIcon,
-  external: ExternalIcon,
-}
+const Icon = ({ iconName, width, height, ...props }) => {
+  const Icon = Icons[iconName] || Icons["TbFileText"]
 
-Object.freeze(SVG_ICONS)
-
-const Icon = ({ type, color, ...props }) => {
-  const SvgIcon = SVG_ICONS[type]
-  return <SvgIcon {...props} style={{ fill: color }} />
+  return <Icon {...props} />
 }
 
 export default Icon
