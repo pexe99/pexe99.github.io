@@ -13,7 +13,7 @@ import Header from "../Header"
 import Body from "../Body"
 import NavBar from "../NavBar"
 import { ThemeProvider } from "styled-components"
-import { lightTheme } from "../../themes/colors"
+import { lightTheme, darkTheme } from "../../themes/colors"
 
 const LayoutWrapper = styled.div`
   width: 100%;
@@ -22,6 +22,7 @@ const LayoutWrapper = styled.div`
   flex-direction: row;
   overflow: hidden hidden;
   transition: margin-left 200ms ease, width 200ms ease;
+  background: ${props => props.theme.layoutBackground};
 `
 
 const Dimmer = styled.div`
@@ -73,16 +74,14 @@ const Layout = ({ children }) => {
   }
 
   useEffect(() => {
-    if (!isMobile) {
-      window.addEventListener("mousemove", handleMouseMove)
-      return () => {
-        window.removeEventListener("mousemove", handleMouseMove)
-      }
+    window.addEventListener("mousemove", handleMouseMove)
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove)
     }
   }, [isNavVisible])
 
   return (
-    <ThemeProvider theme={lightTheme}>
+    <ThemeProvider theme={darkTheme}>
       <LayoutWrapper>
         <NavBar
           $isVisible={isNavVisible}

@@ -12,14 +12,16 @@ const CardWrapper = styled.div`
   text-decoration: none;
   line-height: 1.5;
   cursor: pointer;
-  box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px,
-    rgba(15, 15, 15, 0.1) 0px 2px 4px;
+  box-shadow: ${props => props.theme.cardShadow};
   border-radius: 0.25rem;
-  background: ${props => props.theme.background};
+  background: ${props => props.theme.cardBackground};
   overflow: hidden;
   flex-direction: column;
   &:hover {
     background: ${props => props.theme.cardHover};
+  }
+  &:active {
+    background: ${props => props.theme.cardActive};
   }
   transition: 20ms ease-in 0s;
   user-select: none;

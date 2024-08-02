@@ -50,12 +50,12 @@ const NavLinks = () => {
         <span>Search</span>
       </NavButton>
       <NavButton>
-        <Icon iconName="TbSun" size="1.25rem" />
-        <span>Change to Dark</span>
+        <Icon iconName="TbSunHigh" size="1.25rem" />
+        <span>Change to Light</span>
       </NavButton>
       <NavButton>
         <Icon iconName="TbMoonStars" size="1.25rem" />
-        <span>Change to Light</span>
+        <span>Change to Dark</span>
       </NavButton>
       <NavButton>
         <Icon iconName="TbSmartHome" size="1.25rem" />
