@@ -2,16 +2,17 @@
 
 import React from "react"
 import { graphql } from "gatsby"
+import Layout from "../components/Layout"
 
 const PostTemplate = ({ data }) => {
   const { mdx } = data
   const { frontmatter, body } = mdx
 
   return (
-    <div>
+    <Layout>
       <h1>{frontmatter.title}</h1>
       <div>{body}</div>
-    </div>
+    </Layout>
   )
 }
 

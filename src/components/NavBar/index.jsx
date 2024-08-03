@@ -4,7 +4,7 @@ import NavHeader from "./NavHeader"
 import NavLinks from "./NavLinks"
 import NavTags from "./NavTags"
 
-const NavWrapper = styled.nav`
+const Navigation = styled.nav`
   position: ${props => (props.$isMobile ? "fixed" : "static")};
   width: 15.5rem;
   height: ${props => (props.$isFixed || props.$isMobile ? "100vh" : "auto")};
@@ -50,7 +50,7 @@ const NavWrapper = styled.nav`
 `
 
 const NavBar = ({ $isVisible, $isFixed, $isMobile, setIsNavFixed }) => (
-  <NavWrapper $isVisible={$isVisible} $isFixed={$isFixed} $isMobile={$isMobile}>
+  <Navigation $isVisible={$isVisible} $isFixed={$isFixed} $isMobile={$isMobile}>
     <NavHeader
       $isFixed={$isFixed}
       $isMobile={$isMobile}
@@ -58,7 +58,7 @@ const NavBar = ({ $isVisible, $isFixed, $isMobile, setIsNavFixed }) => (
     />
     <NavLinks />
     <NavTags />
-  </NavWrapper>
+  </Navigation>
 )
 
 export default NavBar

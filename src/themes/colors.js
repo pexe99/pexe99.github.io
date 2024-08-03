@@ -33,7 +33,7 @@ export const lightTheme = {
   navTagIcon: "rgb(168, 167, 163)",
   navTagDivider: "rgba(55, 53, 47, 0.09) 0 0.0625rem 0",
   navBoxShadow:
-    "rgba(15, 15, 15, 0.05) 0 0 0 0.0625rem, rgba(15, 15, 15, 0.1) 0 0.188rem 0.375rem, rgba(15, 15, 15, 0.2) 0 0.375rem 1.5rem",
+    "rgba(0, 0, 0, 0.024) -0.0625rem 0rem 0rem 0rem inset, rgba(15, 15, 15, 0.05) 0 0 0 0.0625rem, rgba(15, 15, 15, 0.1) 0 0.188rem 0.375rem, rgba(15, 15, 15, 0.2) 0 0.375rem 1.5rem",
   navFixedBoxShadow: "rgba(0, 0, 0, 0.024) -0.0625rem 0rem 0rem 0rem inset",
   // scrollBar
   scrollBarColor: "#D3D1C8 rgba(0, 0, 0, 0)",
@@ -73,7 +73,7 @@ export const darkTheme = {
   navTagIcon: "rgb(112, 112, 112)",
   navTagDivider: "rgba(255, 255, 255, 0.094) 0 0.0625rem 0",
   navBoxShadow:
-    "rgba(15, 15, 15, 0.1) 0 0 0 0.0625rem, rgba(15, 15, 15, 0.2) 0 0.188rem 0.375rem, rgba(15, 15, 15, 0.4) 0 0.375rem 1.5rem",
+    "rgba(255, 255, 255, 0.05) -0.0625rem 0rem 0rem 0rem inset, rgba(15, 15, 15, 0.1) 0 0 0 0.0625rem, rgba(15, 15, 15, 0.2) 0 0.188rem 0.375rem, rgba(15, 15, 15, 0.4) 0 0.375rem 1.5rem",
   navFixedBoxShadow:
     "rgba(255, 255, 255, 0.05) -0.0625rem 0rem 0rem 0rem inset",
   // scrollBar
