@@ -1,7 +1,8 @@
 // src/components/Nav.jsx
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import Icon from "../../Icon"
+import { useTheme } from "../../../contexts/themeContext"
 
 const NavButtonWrapper = styled.div`
   display: flex;
@@ -43,19 +44,19 @@ const NavButton = styled.button`
 `
 
 const NavLinks = () => {
+  const [ThemeMode, toggleTheme] = useTheme()
   return (
     <NavButtonWrapper>
       <NavButton>
         <Icon iconName="TbSearch" size="1.25rem" />
         <span>Search</span>
       </NavButton>
-      <NavButton>
-        <Icon iconName="TbSunHigh" size="1.25rem" />
-        <span>Change to Light</span>
-      </NavButton>
-      <NavButton>
-        <Icon iconName="TbMoonStars" size="1.25rem" />
-        <span>Change to Dark</span>
+      <NavButton onClick={() => toggleTheme()}>
+        <Icon
+          iconName={ThemeMode === "dark" ? "TbSunHigh" : "TbMoonStars"}
+          size="1.25rem"
+        />
+        <span>Change to {ThemeMode === "dark" ? "Light" : "Dark"}</span>
       </NavButton>
       <NavButton>
         <Icon iconName="TbSmartHome" size="1.25rem" />

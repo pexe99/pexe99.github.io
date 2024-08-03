@@ -39,6 +39,10 @@ const GlobalStyles = createGlobalStyle`
         }
     }
 
+    body {
+        transition: background-color 0.3s, color 0.3s;
+    }
+
     button {
         border: none;
         background: none;

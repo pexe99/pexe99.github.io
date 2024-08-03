@@ -1,19 +1,12 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
- */
-
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import GlobalStyles from "../GlobalStyles"
 import Header from "../Header"
 import Body from "../Body"
 import NavBar from "../NavBar"
-import { ThemeProvider } from "styled-components"
 import { lightTheme, darkTheme } from "../../themes/colors"
+import { ThemeProvider } from "../../contexts/themeContext"
 
 const LayoutWrapper = styled.div`
   width: 100%;
@@ -82,6 +75,7 @@ const Layout = ({ children }) => {
 
   return (
     <ThemeProvider theme={darkTheme}>
+      <GlobalStyles />
       <LayoutWrapper>
         <NavBar
           $isVisible={isNavVisible}
@@ -93,7 +87,6 @@ const Layout = ({ children }) => {
           <Dimmer onClick={() => setIsNavFixed(false)} />
         )}
         <ContentContainer $isNavFixed={isNavFixed} $isMobile={isMobile}>
-          <GlobalStyles />
           <Header
             $isVisible={isNavVisible}
             $isFixed={isNavFixed}
