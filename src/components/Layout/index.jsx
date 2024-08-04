@@ -9,13 +9,14 @@ import { lightTheme, darkTheme } from "../../themes/colors"
 import { ThemeProvider } from "../../contexts/themeContext"
 
 const LayoutWrapper = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100dvh;
   display: flex;
   flex-direction: row;
-  overflow: hidden hidden;
+  overflow: hidden visible;
   transition: margin-left 200ms ease, width 200ms ease;
   background: ${props => props.theme.layoutBackground};
+  overflow: hidden;
 `
 
 const Dimmer = styled.div`
@@ -23,17 +24,19 @@ const Dimmer = styled.div`
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   z-index: 200;
   overflow: hidden;
-  background: ${props => props.theme.dimmer};
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px); /* 배경 블러 처리 */
 `
 
 const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  overflow: hidden;
+  height: 100vh;
+  overflow: hidden visible;
   margin-left: ${props =>
     props.$isNavFixed || props.$isMobile ? "0" : "-15.5rem"};
   transition: margin-left 200ms ease, width 200ms ease;
@@ -74,7 +77,7 @@ const Layout = ({ children }) => {
   }, [isNavVisible])
 
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider>
       <GlobalStyles />
       <LayoutWrapper>
         <NavBar

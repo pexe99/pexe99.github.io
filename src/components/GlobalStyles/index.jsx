@@ -1,17 +1,9 @@
 import { createGlobalStyle } from "styled-components"
 import reset from "styled-reset"
+import "./font.css"
 
 const GlobalStyles = createGlobalStyle`
     ${reset}
-
-    @font-face {
-        font-family: 'Pretendard Variable';
-        src: url('/PretendardVariable.woff2') format('woff2'),
-         url('/PretendardVariable.ttf') format('truetype');
-        font-weight: 100 900;
-        font-style: normal;
-        font-display: swap;
-    }
 
     * {
     font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !important;
@@ -39,8 +31,12 @@ const GlobalStyles = createGlobalStyle`
         }
     }
 
+    html {
+        background: ${props => props.theme.background};
+    }
+
     body {
-        transition: background-color 0.3s, color 0.3s;
+        background: ${props => props.theme.background};
     }
 
     button {

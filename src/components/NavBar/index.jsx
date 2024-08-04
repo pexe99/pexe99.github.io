@@ -7,9 +7,9 @@ import NavTags from "./NavTags"
 const Navigation = styled.nav`
   position: ${props => (props.$isMobile ? "fixed" : "static")};
   width: 15.5rem;
-  height: ${props => (props.$isFixed || props.$isMobile ? "100vh" : "auto")};
+  height: ${props => (props.$isFixed || props.$isMobile ? "100dvh" : "auto")};
   max-height: ${props =>
-    !props.$isFixed && !props.$isMobile ? "calc(100vh - 7.375rem)" : "none"};
+    !props.$isFixed && !props.$isMobile ? "calc(100dvh - 7.375rem)" : "none"};
   background-color: ${props =>
     props.$isFixed && !props.$isMobile
       ? "transparent"

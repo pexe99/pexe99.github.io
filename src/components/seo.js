@@ -37,6 +37,16 @@ function Seo({ description, title, children }) {
       <meta name="twitter:creator" content={site.siteMetadata?.author || ``} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={metaDescription} />
+      <meta name="theme-color" content="currentColor" />
+      <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="transparent"
+      />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover"
+      ></meta>
+      <meta content="yes" name="apple-mobile-web-app-capable" />
       {children}
     </>
   )
