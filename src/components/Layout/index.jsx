@@ -13,7 +13,8 @@ const LayoutWrapper = styled.div`
   height: 100dvh;
   display: flex;
   flex-direction: row;
-  overflow: hidden visible;
+  overflow: hidden;
+  overscroll-behavior: none;
   transition: margin-left 200ms ease, width 200ms ease;
   background: ${props => props.theme.layoutBackground};
   overflow: hidden;
@@ -35,8 +36,8 @@ const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
-  overflow: hidden visible;
+  height: 100dvh;
+  overflow: hidden;
   margin-left: ${props =>
     props.$isNavFixed || props.$isMobile ? "0" : "-15.5rem"};
   transition: margin-left 200ms ease, width 200ms ease;

@@ -4,7 +4,7 @@ import "./font.css"
 
 const GlobalStyles = createGlobalStyle`
     ${reset}
-
+    
     * {
     font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !important;
         box-sizing: border-box;
@@ -29,14 +29,15 @@ const GlobalStyles = createGlobalStyle`
             background: ${props => props.theme.scrollBarThumb};
             cursor: pointer;
         }
+        transition: background-color 0.2s ease;
     }
 
     html {
-        background: ${props => props.theme.background};
+        overscroll-behavior: none;
     }
-
+    
     body {
-        background: ${props => props.theme.background};
+        background-color: ${props => props.theme.background};
     }
 
     button {

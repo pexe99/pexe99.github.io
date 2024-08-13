@@ -9,9 +9,10 @@ const MainContainer = styled.main`
   flex-direction: column;
   background: ${props => props.theme.background};
   z-index: 1;
-  height: calc(100vh - 2.75rem);
+  height: calc(100dvh - 2.75rem);
   max-height: 100%;
   overflow: hidden auto;
+  overscroll-behavior: contain;
 `
 
 const ScrollWrapper = styled.div`
