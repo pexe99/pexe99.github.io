@@ -2,6 +2,7 @@
 import React from "react"
 import styled from "styled-components"
 import Icon from "../../Icon"
+import { blogIcon, blogName } from "../../../../blog-config.js"
 
 const HeaderWrapper = styled.div`
   height: 2rem;
@@ -74,10 +75,10 @@ const NavHeader = ({ $isFixed, $isMobile, changeNavStatic }) => (
   <HeaderWrapper>
     <BlogTitle>
       <IconWrapper>
-        <Icon iconName="TbApiApp" size="1.375rem" />
+        <Icon iconName={blogIcon} size="1.375rem" />
         <RedDot />
       </IconWrapper>
-      <span>Lellow Mellow</span>
+      <span>{blogName}</span>
     </BlogTitle>
     {$isFixed && !$isMobile && (
       <HeaderButton onClick={changeNavStatic}>

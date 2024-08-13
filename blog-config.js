@@ -8,10 +8,10 @@ module.exports = {
 
   // Main page description (callout)
   description:
-    "A Gatsby Starter Project for me to start your own develop blog with super minimal theme.",
+    "A Gatsby Starter Project to create your own dev blog with a minimalist Notion-inspired theme. Built by a Notion fan.",
 
   // Navigation bar author name
-  author: "Lellow Mellow",
+  blogName: "Notionant.dev",
 
   // Icons
   // Enter the desired Icon name in the field below the link.
@@ -20,7 +20,7 @@ module.exports = {
   // main: Main page icon
   // profile: Navigation bar author icon
   mainIcon: "TbDeviceDesktopCode",
-  profileIcon: "",
+  blogIcon: "TbApiApp",
 
   // ######################
   // Required Section End
@@ -40,14 +40,16 @@ module.exports = {
     x: "",
     threads: "",
     instagram: "",
+    gmail: "mailto:dr11291129@gmail.com",
   },
 
   // Navigation bar additional bio links
   // Feel free to add new keys if necessary.
   // If not using a key, leave it as an empty object.
-  additionalLinks: {
-    keyname: "",
-  },
+  // Example: { icon: "TbBrandTiktok", title: "Tiktok", url: "https://www.tiktok.com/" }
+  additionalLinks: [
+    { icon: "TbBrandTiktok", title: "Tiktok", url: "https://www.tiktok.com/" },
+  ],
 
   // ######################
   // Optional Section End

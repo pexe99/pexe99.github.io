@@ -3,6 +3,18 @@ import React, { useContext } from "react"
 import styled from "styled-components"
 import Icon from "../../Icon"
 import { useTheme } from "../../../contexts/themeContext"
+import { links, additionalLinks } from "../../../../blog-config"
+
+const ICON_LIST = {
+  github: "TbBrandGithub",
+  linkedin: "TbBrandLinkedin",
+  youtube: "TbBrandYoutube",
+  x: "TbBrandX",
+  threads: "TbBrandThreads",
+  instagram: "TbBrandInstagram",
+  gmail: "TbBrandGmail",
+}
+Object.freeze(ICON_LIST)
 
 const NavButtonWrapper = styled.div`
   display: flex;
@@ -66,18 +78,24 @@ const NavLinks = () => {
         <Icon iconName="TbLayoutList" size="1.25rem" />
         <span>Series</span>
       </NavButton>
-      <NavButton>
-        <Icon iconName="TbBrandGithub" size="1.25rem" />
-        <span>Github</span>
-      </NavButton>
-      <NavButton>
-        <Icon iconName="TbBrandLinkedin" size="1.25rem" />
-        <span>Linkedin</span>
-      </NavButton>
-      <NavButton>
-        <Icon iconName="TbBrandYoutube" size="1.25rem" />
-        <span>Youtube</span>
-      </NavButton>
+
+      {Object.keys(links).map(key => {
+        if (links[key] !== "") {
+          return (
+            <NavButton onClick={() => window.open(links[key])}>
+              <Icon iconName={ICON_LIST[key]} size="1.25rem" />
+              <span>{key.charAt(0).toUpperCase() + key.slice(1)}</span>
+            </NavButton>
+          )
+        }
+      })}
+
+      {additionalLinks.map(({ icon, title, url }) => (
+        <NavButton onClick={() => window.open(url)}>
+          <Icon iconName={icon} size="1.25rem" />
+          <span>{title.charAt(0).toUpperCase() + title.slice(1)}</span>
+        </NavButton>
+      ))}
     </NavButtonWrapper>
   )
 }
