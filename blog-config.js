@@ -19,10 +19,9 @@ module.exports = {
   // https://react-icons.github.io/react-icons/icons/tb/
   // main: Main page icon
   // profile: Navigation bar author icon
-  icons: {
-    main: "",
-    profile: "",
-  },
+  mainIcon: "TbDeviceDesktopCode",
+  profileIcon: "",
+
   // ######################
   // Required Section End
   // ######################

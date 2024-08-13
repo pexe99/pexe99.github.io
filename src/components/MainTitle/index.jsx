@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Icon from "../Icon/index.jsx"
+import { title, description, mainIcon } from "../../../blog-config.js"
 
 const MainIcon = styled(Icon)`
   margin-top: 5.75rem;
@@ -50,14 +51,11 @@ const CalloutTextWrapper = styled.div`
 const MainTitle = () => {
   return (
     <>
-      <MainIcon iconName="TbDeviceDesktopCode" size="4.875rem" />
-      <Title>WELCOME, IT’S YOUR OWN BLOG</Title>
+      <MainIcon iconName={mainIcon} size="4.875rem" />
+      <Title>{title}</Title>
       <Callout>
         <Icon iconName="TbTopologyStar3" size="1.5rem" />
-        <CalloutTextWrapper>
-          A Gatsby Starter Project for me to start your own develop blog with
-          super minimal theme.
-        </CalloutTextWrapper>
+        <CalloutTextWrapper>{description}</CalloutTextWrapper>
       </Callout>
     </>
   )
