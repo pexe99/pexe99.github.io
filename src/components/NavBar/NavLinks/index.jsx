@@ -87,7 +87,7 @@ const NavLinks = ({ $setSearchModalActive }) => {
               <span>{key.charAt(0).toUpperCase() + key.slice(1)}</span>
             </NavButton>
           )
-        }
+        } else return ""
       })}
 
       {additionalLinks.map(({ icon, title, url }) => (

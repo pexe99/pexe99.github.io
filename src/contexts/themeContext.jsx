@@ -24,7 +24,7 @@ const useTheme = () => {
     let toggleMode = ThemeMode === "light" ? "dark" : "light"
     setThemeMode(toggleMode)
     window.localStorage.setItem("theme", toggleMode)
-  }, [ThemeMode])
+  }, [ThemeMode, setThemeMode])
 
   return [ThemeMode, toggleTheme]
 }

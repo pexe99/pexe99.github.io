@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import GlobalStyles from "../GlobalStyles"
@@ -55,26 +55,28 @@ const Layout = ({ children }) => {
 
   const [isNavVisible, setIsNavVisible] = useState(false)
   const [isNavFixed, setIsNavFixed] = useState(false)
-  const [isMobile, setIsMobile] = useState(
+  const [isMobile, _] = useState(
     "ontouchstart" in window || navigator.maxTouchPoints > 0
   )
 
-  const handleMouseMove = event => {
-    const threshold =
-      isNavVisible || isNavFixed ? 248 : Math.max(window.innerWidth * 0.03, 24)
-    if (event.clientX < threshold) {
-      setIsNavVisible(true)
-    } else {
-      setIsNavVisible(false)
-    }
-  }
-
   useEffect(() => {
+    const handleMouseMove = event => {
+      const threshold =
+        isNavVisible || isNavFixed
+          ? 248
+          : Math.max(window.innerWidth * 0.03, 24)
+      if (event.clientX < threshold) {
+        setIsNavVisible(true)
+      } else {
+        setIsNavVisible(false)
+      }
+    }
+
     window.addEventListener("mousemove", handleMouseMove)
     return () => {
       window.removeEventListener("mousemove", handleMouseMove)
     }
-  }, [isNavVisible])
+  }, [isNavVisible, isNavFixed])
 
   return (
     <ThemeProvider>

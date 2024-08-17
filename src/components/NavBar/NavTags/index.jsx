@@ -89,14 +89,19 @@ const NavTags = () => {
   const dividerRef = useRef(null)
 
   useEffect(() => {
+    const currentNav = navRef.current
+    const currentDivider = dividerRef.current
+
     const handleScroll = () => {
-      if (navRef.current.scrollTop > 0) {
-        if (dividerRef.current) dividerRef.current.classList.add("scrolled")
-      } else dividerRef.current.classList.remove("scrolled")
+      if (currentNav && currentNav.scrollTop > 0) {
+        if (currentDivider) currentDivider.classList.add("scrolled")
+      } else if (currentDivider) {
+        currentDivider.classList.remove("scrolled")
+      }
     }
-    navRef.current.addEventListener("scroll", handleScroll)
+    currentNav.addEventListener("scroll", handleScroll)
     return () => {
-      navRef.current.removeEventListener("scroll", handleScroll)
+      currentNav.removeEventListener("scroll", handleScroll)
     }
   }, [])
 

@@ -2,7 +2,6 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import { truncateText } from "../../../utils/truncateText"
 import Icon from "../../Icon"
 
 const BlockWrapper = styled.a`

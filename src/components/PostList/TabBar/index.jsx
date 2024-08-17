@@ -1,5 +1,5 @@
 import React from "react"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import Icon from "../../Icon"
 
 const TabBarWrapper = styled.div`
@@ -49,12 +49,7 @@ const TabBar = ({ isGridView, changeToGrid, changeToList }) => {
   return (
     <TabBarWrapper role="tablist">
       <TabWrapper $isSelected={isGridView}>
-        <TabButton
-          role="tab"
-          tabIndex={0}
-          aria-selected={isGridView}
-          onClick={changeToGrid}
-        >
+        <TabButton role="tab" aria-selected={isGridView} onClick={changeToGrid}>
           <Icon iconName="TbLayoutGrid" size="1rem" />
           <span>Grid view</span>
         </TabButton>
@@ -62,7 +57,6 @@ const TabBar = ({ isGridView, changeToGrid, changeToList }) => {
       <TabWrapper $isSelected={!isGridView}>
         <TabButton
           role="tab"
-          tabIndex={1}
           aria-selected={!isGridView}
           onClick={changeToList}
         >
