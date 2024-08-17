@@ -49,6 +49,32 @@ const GlobalStyles = createGlobalStyle`
         -moz-appearance: none;
         appearance: none;
     }
+
+    input {
+        border: none;
+        background: transparent;
+        &:focus {
+            outline: none;
+        }
+        &::placeholder {
+            color: ${props => props.theme.placeholderColor};
+            opacity: 1;
+        }
+        &::-webkit-input-placeholder {
+            color: ${props => props.theme.placeholderColor};
+        }
+        &:-moz-placeholder {
+            color: ${props => props.theme.placeholderColor};
+            opacity: 1;
+        }
+        &::-moz-placeholder {
+            color: ${props => props.theme.placeholderColor};
+            opacity: 1;
+        }
+        &:-ms-input-placeholder {
+            color: ${props => props.theme.placeholderColor};
+        }
+    }
 `
 
 export default GlobalStyles

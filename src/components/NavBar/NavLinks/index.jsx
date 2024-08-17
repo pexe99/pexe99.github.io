@@ -1,5 +1,5 @@
 // src/components/Nav.jsx
-import React, { useContext } from "react"
+import React from "react"
 import styled from "styled-components"
 import Icon from "../../Icon"
 import { useTheme } from "../../../contexts/themeContext"
@@ -55,11 +55,11 @@ const NavButton = styled.button`
   transition: 20ms ease-in 0s;
 `
 
-const NavLinks = () => {
+const NavLinks = ({ $setSearchModalActive }) => {
   const [ThemeMode, toggleTheme] = useTheme()
   return (
     <NavButtonWrapper>
-      <NavButton>
+      <NavButton onClick={() => $setSearchModalActive(true)}>
         <Icon iconName="TbSearch" size="1.25rem" />
         <span>Search</span>
       </NavButton>

@@ -5,7 +5,6 @@ import GlobalStyles from "../GlobalStyles"
 import Header from "../Header"
 import Body from "../Body"
 import NavBar from "../NavBar"
-import { lightTheme, darkTheme } from "../../themes/colors"
 import { ThemeProvider } from "../../contexts/themeContext"
 
 const LayoutWrapper = styled.div`

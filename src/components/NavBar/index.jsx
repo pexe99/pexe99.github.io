@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import NavHeader from "./NavHeader"
 import NavLinks from "./NavLinks"
 import NavTags from "./NavTags"
+import SearchDialog from "./SearchDialog"
 
 const Navigation = styled.nav`
   position: ${props => (props.$isMobile ? "fixed" : "static")};
@@ -49,16 +50,29 @@ const Navigation = styled.nav`
   }
 `
 
-const NavBar = ({ $isVisible, $isFixed, $isMobile, setIsNavFixed }) => (
-  <Navigation $isVisible={$isVisible} $isFixed={$isFixed} $isMobile={$isMobile}>
-    <NavHeader
-      $isFixed={$isFixed}
-      $isMobile={$isMobile}
-      changeNavStatic={() => setIsNavFixed(false)}
-    />
-    <NavLinks />
-    <NavTags />
-  </Navigation>
-)
+const NavBar = ({ $isVisible, $isFixed, $isMobile, setIsNavFixed }) => {
+  const [searchModalActive, setSearchModalActive] = useState(false)
+
+  return (
+    <>
+      {searchModalActive && (
+        <SearchDialog $setSearchModalActive={setSearchModalActive} />
+      )}
+      <Navigation
+        $isVisible={$isVisible}
+        $isFixed={$isFixed}
+        $isMobile={$isMobile}
+      >
+        <NavHeader
+          $isFixed={$isFixed}
+          $isMobile={$isMobile}
+          changeNavStatic={() => setIsNavFixed(false)}
+        />
+        <NavLinks $setSearchModalActive={setSearchModalActive} />
+        <NavTags />
+      </Navigation>
+    </>
+  )
+}
 
 export default NavBar

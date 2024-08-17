@@ -4,6 +4,7 @@ export const lightTheme = {
   background: "rgb(256, 256, 256)",
   layoutBackground: "rgb(247, 247, 245)",
   tag: "rgb(227, 226, 224)",
+  placeholderColor: "rgb(179, 179, 176)",
   dimmer: "rgba(15, 15, 15, 0.6)",
   // card
   cardBackground: "rgb(256, 256, 256)",
@@ -38,12 +39,21 @@ export const lightTheme = {
   // scrollBar
   scrollBarColor: "#D3D1C8 rgba(0, 0, 0, 0)",
   scrollBarThumb: "#D3D1C8",
+
+  // searchDialog
+  searchBackground: "rgb(255, 255, 255)",
+  searchIcon: "rgb(172, 171, 169)",
+  searchIconHover: "rgba(55, 53, 47, 0.06)",
+  searchDivider: "rgba(55, 53, 47, 0.09) 0 0.0625rem 0",
+  searchText: "rgba(55, 53, 47, 0.5)",
+  searchCloseText: "rgb(35, 131, 226)",
 }
 
 export const darkTheme = {
   background: "rgb(25, 25, 25)",
   layoutBackground: "rgb(32, 32, 32)",
   tag: "rgb(90, 90, 90)",
+  placeholderColor: "rgb(100, 100, 100)",
   dimmer: "rgba(15, 15, 15, 0.8)",
   // card
   cardBackground: "rgba(255, 255, 255, 0.055)",
@@ -79,4 +89,12 @@ export const darkTheme = {
   // scrollBar
   scrollBarColor: "rgba(255, 255, 255, 0.2)  rgba(0, 0, 0, 0)",
   scrollBarThumb: "rgba(255, 255, 255, 0.2)",
+
+  // searchDialog
+  searchBackground: "rgb(32, 32, 32)",
+  searchIcon: "rgba(255, 255, 255, 0.282)",
+  searchIconHover: "rgba(255, 255, 255, 0.5)",
+  searchDivider: "rgba(255, 255, 255, 0.094) 0 0.0625rem 0",
+  searchText: "rgba(255, 255, 255, 0.282)",
+  searchCloseText: "rgb(35, 131, 226)",
 }
