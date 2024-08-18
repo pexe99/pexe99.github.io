@@ -3,6 +3,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
+import MainTitle from "../components/MainTitle"
 
 const PostTemplate = ({ data }) => {
   const { mdx } = data
@@ -10,8 +11,14 @@ const PostTemplate = ({ data }) => {
 
   return (
     <Layout>
-      <h1>{frontmatter.title}</h1>
-      <div>{body}</div>
+      <MainTitle
+        type="post"
+        title={frontmatter.title}
+        date={frontmatter.date}
+        icon={frontmatter.icon}
+        tags={frontmatter.tags}
+      />
+      <div>{body.html}</div>
     </Layout>
   )
 }
@@ -21,6 +28,9 @@ export const query = graphql`
     mdx(id: { eq: $id }) {
       frontmatter {
         title
+        date(formatString: "MMMM DD, YYYY")
+        icon
+        tags
       }
       body
     }

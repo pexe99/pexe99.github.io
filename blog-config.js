@@ -10,8 +10,11 @@ module.exports = {
   description:
     "A Gatsby Starter Project to create your own dev blog with a minimalist Notion-inspired theme. Built by a Notion fan.",
 
-  // Navigation bar author name
+  // Navigation bar blog name
   blogName: "Notionant.dev",
+
+  // Post author name
+  author: "LellowMellow",
 
   // Icons
   // Enter the desired Icon name in the field below the link.

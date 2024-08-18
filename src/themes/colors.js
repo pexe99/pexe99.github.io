@@ -5,6 +5,7 @@ export const lightTheme = {
   layoutBackground: "rgb(247, 247, 245)",
   tag: "rgb(227, 226, 224)",
   placeholderColor: "rgb(179, 179, 176)",
+  divider: "0.0625rem solid #37352f17",
   dimmer: "rgba(15, 15, 15, 0.6)",
   // card
   cardBackground: "rgb(256, 256, 256)",
@@ -54,6 +55,7 @@ export const darkTheme = {
   layoutBackground: "rgb(32, 32, 32)",
   tag: "rgb(90, 90, 90)",
   placeholderColor: "rgb(100, 100, 100)",
+  divider: "0.0625rem solid hsla(0,0%, 100%, 0.094)",
   dimmer: "rgba(15, 15, 15, 0.8)",
   // card
   cardBackground: "rgba(255, 255, 255, 0.055)",

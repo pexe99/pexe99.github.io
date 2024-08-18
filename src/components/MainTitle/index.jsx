@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Icon from "../Icon/index.jsx"
-import { title, description, mainIcon } from "../../../blog-config.js"
+import Property from "./Property/index.jsx"
 
 const MainIcon = styled(Icon)`
   margin-top: 5.75rem;
@@ -48,15 +48,18 @@ const CalloutTextWrapper = styled.div`
   line-height: 1.5;
 `
 
-const MainTitle = () => {
+const MainTitle = ({ type = "main", title, description, icon, date, tags }) => {
   return (
     <>
-      <MainIcon iconName={mainIcon} size="4.875rem" />
+      <MainIcon iconName={icon} size="4.875rem" />
       <Title>{title}</Title>
-      <Callout>
-        <Icon iconName="TbTopologyStar3" size="1.5rem" />
-        <CalloutTextWrapper>{description}</CalloutTextWrapper>
-      </Callout>
+      {type === "main" && (
+        <Callout>
+          <Icon iconName="TbTopologyStar3" size="1.5rem" />
+          <CalloutTextWrapper>{description}</CalloutTextWrapper>
+        </Callout>
+      )}
+      {type === "post" && <Property date={date} tags={tags} />}
     </>
   )
 }

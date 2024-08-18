@@ -48,6 +48,7 @@ const PostList = ({ postInfo }) => {
         to: node.fields.slug,
         title: node.frontmatter.title,
         date: new Date(node.frontmatter.date).toLocaleDateString(),
+        icon: node.frontmatter.icon,
         tags: node.frontmatter.tags,
         detail: node.excerpt,
       }

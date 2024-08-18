@@ -98,22 +98,17 @@ const Tag = styled.button`
   transition: 20ms ease-in 0s;
 `
 
-const PostCard = ({ to, title, date, tags, detail }) => {
+const PostCard = ({ to, title, date, icon, tags, detail }) => {
   return (
     <CardWrapper as={Link} to={to}>
       <CardThumbnail>
-        <Icon iconName="" size="2rem" />
+        <Icon iconName={icon} size="2rem" />
       </CardThumbnail>
       <Title>{title}</Title>
       <InfoWrapper>
         <InfoText>{date}</InfoText>
         <TagsWrapper>
-          {tags &&
-            tags.map(tag => (
-              <Tag title="Tags" key={tag}>
-                {tag}
-              </Tag>
-            ))}
+          {tags && tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
         </TagsWrapper>
         <InfoText>{truncateText(detail, 200)}</InfoText>
       </InfoWrapper>

@@ -4,6 +4,7 @@ import Seo from "../components/seo"
 import MainTitle from "../components/MainTitle"
 import PostList from "../components/PostList"
 import { graphql } from "gatsby"
+import { title, description, mainIcon } from "../../blog-config.js"
 
 const IndexPage = ({ data }) => {
   const initialPosts = data.allMdx.edges
@@ -11,7 +12,12 @@ const IndexPage = ({ data }) => {
   return (
     <>
       <Layout>
-        <MainTitle />
+        <MainTitle
+          type="main"
+          title={title}
+          description={description}
+          icon={mainIcon}
+        />
         <PostList postInfo={initialPosts} />
       </Layout>
     </>
@@ -27,6 +33,7 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: "MMMM DD, YYYY")
+            icon
             tags
           }
           excerpt(pruneLength: 250)

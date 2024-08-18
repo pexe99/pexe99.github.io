@@ -82,7 +82,7 @@ const NavLinks = ({ $setSearchModalActive }) => {
       {Object.keys(links).map(key => {
         if (links[key] !== "") {
           return (
-            <NavButton onClick={() => window.open(links[key])}>
+            <NavButton onClick={() => window.open(links[key])} key={key}>
               <Icon iconName={ICON_LIST[key]} size="1.25rem" />
               <span>{key.charAt(0).toUpperCase() + key.slice(1)}</span>
             </NavButton>
@@ -91,7 +91,7 @@ const NavLinks = ({ $setSearchModalActive }) => {
       })}
 
       {additionalLinks.map(({ icon, title, url }) => (
-        <NavButton onClick={() => window.open(url)}>
+        <NavButton onClick={() => window.open(url)} key={title}>
           <Icon iconName={icon} size="1.25rem" />
           <span>{title.charAt(0).toUpperCase() + title.slice(1)}</span>
         </NavButton>

@@ -1,34 +1,23 @@
-const path = require("path")
-const { createFilePath } = require("gatsby-source-filesystem")
+const path = require(`path`)
+const { createFilePath } = require(`gatsby-source-filesystem`)
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
+// Define the template for blog post
+const blogPost = path.resolve(`./src/templates/post.js`)
 
-  if (node.internal.type === "Mdx") {
-    const value = createFilePath({ node, getNode })
-    createNodeField({
-      name: "slug",
-      node,
-      value,
-    })
-  }
-}
-
-exports.createPages = async ({ graphql, actions }) => {
+/**
+ * @type {import('gatsby').GatsbyNode['createPages']}
+ */
+exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
+  // Get all MDX blog posts sorted by date
   const result = await graphql(`
-    query {
-      allMdx {
-        edges {
-          node {
-            id
-            fields {
-              slug
-            }
-            frontmatter {
-              title
-            }
+    {
+      allMdx(sort: { frontmatter: { date: ASC } }, limit: 1000) {
+        nodes {
+          id
+          fields {
+            slug
           }
         }
       }
@@ -36,30 +25,81 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   if (result.errors) {
-    console.error(result.errors)
-    throw result.errors
+    reporter.panicOnBuild(
+      `There was an error loading your blog posts`,
+      result.errors
+    )
+    return
   }
 
-  const postTemplate = path.resolve(`./src/templates/post.js`)
+  const posts = result.data.allMdx.nodes
 
-  result.data.allMdx.edges.forEach(({ node }) => {
-    createPage({
-      path: node.fields.slug,
-      component: postTemplate,
-      context: { id: node.id },
+  // Create blog posts pages
+  if (posts.length > 0) {
+    posts.forEach((post, index) => {
+      const previousPostId = index === 0 ? null : posts[index - 1].id
+      const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
+
+      createPage({
+        path: post.fields.slug,
+        component: blogPost,
+        context: {
+          id: post.id,
+          previousPostId,
+          nextPostId,
+        },
+      })
     })
-  })
+  }
 }
 
+/**
+ * @type {import('gatsby').GatsbyNode['onCreateNode']}
+ */
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
+
+  if (node.internal.type === `Mdx`) {
+    const value = createFilePath({ node, getNode })
+
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    })
+  }
+}
+
+/**
+ * @type {import('gatsby').GatsbyNode['createSchemaCustomization']}
+ */
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
+
   createTypes(`
-    type MdxFields {
-      slug: String
+    type SiteSiteMetadata {
+      author: String
+      siteUrl: String
+      social: Social
     }
-    
+
+    type Social {
+      twitter: String
+    }
+
     type Mdx implements Node {
-      fields: MdxFields
+      frontmatter: Frontmatter
+      fields: Fields
+    }
+
+    type Frontmatter {
+      title: String
+      description: String
+      date: Date @dateformat
+    }
+
+    type Fields {
+      slug: String
     }
   `)
 }

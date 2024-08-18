@@ -19,6 +19,7 @@ const ScrollWrapper = styled.div`
   width: 100%;
   max-width: 47.25rem;
   margin: auto;
+  margin-top: 0;
   padding: 0 1.5rem;
   padding-bottom: 30vh;
 `
