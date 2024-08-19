@@ -11,15 +11,13 @@ const IndexPage = ({ data }) => {
 
   return (
     <>
-      <Layout>
-        <MainTitle
-          type="main"
-          title={title}
-          description={description}
-          icon={mainIcon}
-        />
-        <PostList postInfo={initialPosts} />
-      </Layout>
+      <MainTitle
+        type="main"
+        title={title}
+        description={description}
+        icon={mainIcon}
+      />
+      <PostList postInfo={initialPosts} />
     </>
   )
 }

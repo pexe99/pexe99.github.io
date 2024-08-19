@@ -4,6 +4,7 @@ import styled from "styled-components"
 import Icon from "../../Icon"
 import { useTheme } from "../../../contexts/themeContext"
 import { links, additionalLinks } from "../../../../blog-config"
+import { navigate } from "gatsby"
 
 const ICON_LIST = {
   github: "TbBrandGithub",
@@ -70,7 +71,7 @@ const NavLinks = ({ $setSearchModalActive }) => {
         />
         <span>Change to {ThemeMode === "dark" ? "Light" : "Dark"}</span>
       </NavButton>
-      <NavButton>
+      <NavButton onClick={() => navigate("/")}>
         <Icon iconName="TbSmartHome" size="1.25rem" />
         <span>Home</span>
       </NavButton>

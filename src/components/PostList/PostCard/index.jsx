@@ -1,7 +1,7 @@
 // src/components/PostCard.js
 import React from "react"
 import styled from "styled-components"
-import { Link } from "gatsby"
+import { navigate } from "gatsby"
 import { truncateText } from "../../../utils/truncateText"
 import Icon from "../../Icon"
 
@@ -100,7 +100,7 @@ const Tag = styled.button`
 
 const PostCard = ({ to, title, date, icon, tags, detail }) => {
   return (
-    <CardWrapper as={Link} to={to}>
+    <CardWrapper onClick={() => navigate(to)}>
       <CardThumbnail>
         <Icon iconName={icon} size="2rem" />
       </CardThumbnail>

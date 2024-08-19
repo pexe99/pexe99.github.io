@@ -10,7 +10,7 @@ const PostTemplate = ({ data }) => {
   const { frontmatter, body } = mdx
 
   return (
-    <Layout>
+    <>
       <MainTitle
         type="post"
         title={frontmatter.title}
@@ -19,7 +19,7 @@ const PostTemplate = ({ data }) => {
         tags={frontmatter.tags}
       />
       <div>{body.html}</div>
-    </Layout>
+    </>
   )
 }
 
