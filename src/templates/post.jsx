@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
 import MainTitle from "../components/MainTitle"
-import { MDXRenderer } from "gatsby-plugin-mdx"
 
 const PostTemplate = ({ data }) => {
   const post = data.markdownRemark
