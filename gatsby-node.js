@@ -1,23 +1,31 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
-// Define the template for blog post
-const blogPost = path.resolve(`./src/templates/post.js`)
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
 
-/**
- * @type {import('gatsby').GatsbyNode['createPages']}
- */
+  if (node.internal.type === `MarkdownRemark`) {
+    const slug = createFilePath({ node, getNode, basePath: `pages` })
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug,
+    })
+  }
+}
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
-  // Get all MDX blog posts sorted by date
   const result = await graphql(`
     {
-      allMdx(sort: { frontmatter: { date: ASC } }, limit: 1000) {
-        nodes {
-          id
-          fields {
-            slug
+      allMarkdownRemark(sort: { frontmatter: { date: ASC } }, limit: 1000) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            id
           }
         }
       }
@@ -25,81 +33,19 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   `)
 
   if (result.errors) {
-    reporter.panicOnBuild(
-      `There was an error loading your blog posts`,
-      result.errors
-    )
+    reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
 
-  const posts = result.data.allMdx.nodes
+  const posts = result.data.allMarkdownRemark.edges
 
-  // Create blog posts pages
-  if (posts.length > 0) {
-    posts.forEach((post, index) => {
-      const previousPostId = index === 0 ? null : posts[index - 1].id
-      const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
-
-      createPage({
-        path: post.fields.slug,
-        component: blogPost,
-        context: {
-          id: post.id,
-          previousPostId,
-          nextPostId,
-        },
-      })
+  posts.forEach(({ node }) => {
+    createPage({
+      path: node.fields.slug,
+      component: path.resolve(`./src/templates/post.jsx`),
+      context: {
+        id: node.id,
+      },
     })
-  }
-}
-
-/**
- * @type {import('gatsby').GatsbyNode['onCreateNode']}
- */
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
-
-  if (node.internal.type === `Mdx`) {
-    const value = createFilePath({ node, getNode })
-
-    createNodeField({
-      name: `slug`,
-      node,
-      value,
-    })
-  }
-}
-
-/**
- * @type {import('gatsby').GatsbyNode['createSchemaCustomization']}
- */
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
-
-  createTypes(`
-    type SiteSiteMetadata {
-      author: String
-      siteUrl: String
-      social: Social
-    }
-
-    type Social {
-      twitter: String
-    }
-
-    type Mdx implements Node {
-      frontmatter: Frontmatter
-      fields: Fields
-    }
-
-    type Frontmatter {
-      title: String
-      description: String
-      date: Date @dateformat
-    }
-
-    type Fields {
-      slug: String
-    }
-  `)
+  })
 }

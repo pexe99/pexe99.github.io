@@ -1,5 +1,4 @@
 import * as React from "react"
-import Layout from "../components/Layout"
 import Seo from "../components/seo"
 import MainTitle from "../components/MainTitle"
 import PostList from "../components/PostList"
@@ -7,7 +6,7 @@ import { graphql } from "gatsby"
 import { title, description, mainIcon } from "../../blog-config.js"
 
 const IndexPage = ({ data }) => {
-  const initialPosts = data.allMdx.edges
+  const initialPosts = data.allMarkdownRemark.edges
 
   return (
     <>
@@ -24,7 +23,7 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    allMdx {
+    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
       edges {
         node {
           id

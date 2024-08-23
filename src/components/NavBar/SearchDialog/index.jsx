@@ -39,9 +39,11 @@ const SearchBarWrapper = styled.div`
   width: 100%;
   background: transparent;
   height: 3rem;
-  flex: 0 0 auto;
   box-shadow: ${props => props.theme.searchDivider};
   color: ${props => props.theme.searchIcon};
+  & > * {
+    flex: 0 0 auto;
+  }
 `
 
 const EraseButton = styled.button`
@@ -57,6 +59,7 @@ const EraseButton = styled.button`
 `
 
 const SearchInput = styled.input`
+  width: 100%;
   flex: 1 1 auto;
   margin-left: 0.5rem;
   font-size: 1.125rem;
@@ -90,6 +93,7 @@ const NoResult = styled.div`
   align-items: center;
   font-size: 0.875rem;
   line-height: 1.5;
+  text-align: center;
   span:nth-child(1) {
     font-weight: 500;
     color: ${props => props.theme.weekText};

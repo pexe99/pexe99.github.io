@@ -1,13 +1,11 @@
-// src/templates/post.js
-
 import React from "react"
 import { graphql } from "gatsby"
-import Layout from "../components/Layout"
 import MainTitle from "../components/MainTitle"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 const PostTemplate = ({ data }) => {
-  const { mdx } = data
-  const { frontmatter, body } = mdx
+  const post = data.markdownRemark
+  const { frontmatter, html } = post
 
   return (
     <>
@@ -18,21 +16,21 @@ const PostTemplate = ({ data }) => {
         icon={frontmatter.icon}
         tags={frontmatter.tags}
       />
-      <div>{body.html}</div>
+      <div dangerouslySetInnerHTML={{ __html: html }} />
     </>
   )
 }
 
 export const query = graphql`
   query ($id: String!) {
-    mdx(id: { eq: $id }) {
+    markdownRemark(id: { eq: $id }) {
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
         icon
         tags
       }
-      body
+      html
     }
   }
 `

@@ -48,17 +48,12 @@ module.exports = {
         },
       },
     },
+    `gatsby-transformer-remark`,
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: "markdown-pages",
-        path: `${__dirname}/contents/posts`, // Markdown 파일이 위치한 디렉토리
-      },
-    },
-    {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        extensions: [`.mdx`, `.md`],
+        name: `markdown-pages`,
+        path: `${__dirname}/contents/posts`,
       },
     },
   ],

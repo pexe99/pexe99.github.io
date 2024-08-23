@@ -34,6 +34,7 @@ const GlobalStyles = createGlobalStyle`
 
     html {
         overscroll-behavior: none;
+        background-color: ${props => props.theme.background};
     }
     
     body {
