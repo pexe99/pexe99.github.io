@@ -16,6 +16,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-catch-links`,
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -48,7 +49,12 @@ module.exports = {
         },
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
