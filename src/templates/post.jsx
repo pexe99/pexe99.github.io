@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import MainTitle from "../components/MainTitle"
+import MarkdownWrapper from "../components/MarkdownWrapper"
 
 const PostTemplate = ({ data }) => {
   const post = data.markdownRemark
@@ -15,7 +16,7 @@ const PostTemplate = ({ data }) => {
         icon={frontmatter.icon}
         tags={frontmatter.tags}
       />
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <MarkdownWrapper html={html} />
     </>
   )
 }
