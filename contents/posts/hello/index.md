@@ -104,20 +104,10 @@ tags:
 
 - **기본 이미지**:
 
-![Alt text](https://example.com/image.jpg)
+![Alt text](https://picsum.photos/id/237/200/300)
 
 ```markdown
 ![Alt text](https://example.com/image.jpg)
-```
-
-- **참조 이미지**:
-
-![Alt text][image]
-[image]: https://example.com/image.jpg
-
-```markdown
-![Alt text][image]
-[image]: https://example.com/image.jpg
 ```
 
 ## 5. 텍스트 스타일링 (Text Styling)
@@ -200,9 +190,15 @@ tags:
 
   > This is a blockquote
 
-  ```markdown
-  > This is a blockquote
-  ```
+> aioefaoiejfow
+>
+> > qwdqwd
+> >
+> > > qwdqwd
+
+```markdown
+> This is a blockquote
+```
 
 ## 8. 표 (Tables)
 
@@ -292,33 +288,8 @@ Here is a footnote reference[^1].
 [^1]: Here is the footnote.
 ```
 
-## 15. Definition Lists
-
-First Term
-: This is the definition of the first term.
-
-```markdown
-First Term
-: This is the definition of the first term.
-```
-
-## 16. 목차 (Table of Contents)
-
-- 플러그인을 통해 자동으로 생성할 수 있습니다:
-  ```markdown
-  [[toc]]
-  ```
-
-## 17. Emoji
-
-- **기본 Emoji 지원**:
-
-  :smile:
-
-  ```markdown
-  :smile:
-  ```
-
 ## 18. Custom Plugins
 
 Gatsby에서 `gatsby-transformer-remark`와 함께 다양한 Remark 플러그인을 사용할 수 있습니다. 이를 통해 추가적인 기능을 지원할 수 있습니다 (예: `gatsby-remark-prismjs`로 코드 블록에 대한 문법 강조).
+
+<br/>

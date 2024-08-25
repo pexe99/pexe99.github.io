@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 export const MarkdownStyler = styled.section`
+  /* General styling for all elements inside the MarkdownStyler */
   * {
     padding: 0.188rem 0.125rem;
     margin: 0.125rem 0 0.0625rem 0;
@@ -9,10 +10,12 @@ export const MarkdownStyler = styled.section`
     color: ${props => props.theme.text};
   }
 
+  /* Strong (bold) text styling */
   strong {
     font-weight: 600 !important;
   }
 
+  /* Blockquote styling */
   blockquote {
     width: 100%;
     height: fit-content;
@@ -23,13 +26,19 @@ export const MarkdownStyler = styled.section`
     * {
       padding: 0 0.125rem;
     }
+    blockquote {
+      padding: 0 1rem;
+      margin: 0.188rem 0;
+    }
   }
 
+  /* Paragraph styling */
   p {
     margin-top: 0.0625rem;
     font-size: 1rem;
   }
 
+  /* Inline code block styling */
   * > code {
     padding: 0.2rem 0.4rem;
     background: rgba(135, 131, 120, 0.15);
@@ -40,6 +49,7 @@ export const MarkdownStyler = styled.section`
       Courier, monospace;
   }
 
+  /* Anchor (link) styling */
   a {
     margin-bottom: 0.125rem;
     padding-bottom: 0;
@@ -47,14 +57,17 @@ export const MarkdownStyler = styled.section`
     opacity: 0.7;
   }
 
+  /* Emphasized (italic) text styling */
   em {
     font-style: italic !important;
   }
 
+  /* Deleted (strikethrough) text styling */
   del {
     text-decoration: line-through;
   }
 
+  /* Horizontal rule (divider) styling */
   hr {
     width: 100%;
     margin: 0.438rem 0;
@@ -64,6 +77,7 @@ export const MarkdownStyler = styled.section`
     border-bottom: 1px solid rgba(55, 53, 47, 0.16);
   }
 
+  /* Headings (h1 - h6) styling */
   h1,
   h2,
   h3,
@@ -76,6 +90,7 @@ export const MarkdownStyler = styled.section`
     line-height: 1.3;
   }
 
+  /* Specific heading level styling */
   h1 {
     margin-top: 2rem;
     margin-bottom: 0.25rem;
@@ -97,12 +112,15 @@ export const MarkdownStyler = styled.section`
     font-size: 1.25rem;
   }
 
+  /* Unordered list (ul) styling */
   ul {
     width: 100%;
     list-style: disc;
     margin: 0;
     padding: 0;
     padding-left: 1.625rem;
+
+    /* Nested unordered lists with different list styles */
     ::marker {
       font-size: 18px;
     }
@@ -123,6 +141,7 @@ export const MarkdownStyler = styled.section`
     }
   }
 
+  /* List item (li) styling */
   li {
     padding: 0.188rem 0.125rem;
     display: list-item;
@@ -130,6 +149,7 @@ export const MarkdownStyler = styled.section`
     list-style-position: outside;
   }
 
+  /* Ordered list (ol) styling */
   ol {
     margin: 0;
     padding: 0;
@@ -141,12 +161,14 @@ export const MarkdownStyler = styled.section`
     }
   }
 
+  /* Task list (checklist) specific styling */
   .contains-task-list,
   .task-list-item {
     list-style: none;
     padding-left: 0;
   }
 
+  /* Checkbox styling */
   ul > li input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
@@ -160,11 +182,13 @@ export const MarkdownStyler = styled.section`
     vertical-align: middle;
   }
 
+  /* Checked checkbox styling */
   .task-list-item input[type="checkbox"]:checked {
     background-color: rgb(35, 131, 226);
     border: 0.125rem solid rgb(35, 131, 226);
   }
 
+  /* Checked checkbox tick mark */
   .task-list-item input[type="checkbox"]:checked::after {
     content: "";
     position: absolute;
@@ -177,15 +201,22 @@ export const MarkdownStyler = styled.section`
     transform: rotate(45deg);
   }
 
+  /* Strikethrough text when checkbox is checked */
   .task-list-item input[type="checkbox"]:checked ~ * {
     text-decoration: line-through;
   }
 
+  /* Additional styling for checked task list items */
   .task-list-item:has(input[type="checkbox"]:checked) {
     text-decoration: line-through rgba(55, 53, 47, 0.25);
     color: rgba(55, 53, 47, 0.65);
+
+    & > * {
+      text-decoration: none;
+    }
   }
 
+  /* Table styling */
   table {
     width: 100vw;
     max-width: 100%;
@@ -197,6 +228,7 @@ export const MarkdownStyler = styled.section`
     overflow-x: auto;
   }
 
+  /* Table elements (tr, th, td, thead, tbody) reset */
   tr,
   th,
   td,
@@ -206,6 +238,7 @@ export const MarkdownStyler = styled.section`
     padding: 0;
   }
 
+  /* Table header (th) and data cell (td) styling */
   th,
   td {
     padding: 0.438rem 0.563rem;
@@ -215,8 +248,18 @@ export const MarkdownStyler = styled.section`
     word-break: break-all;
   }
 
+  /* Table header (th) specific styling */
   th {
     background: rgb(247, 246, 243);
     font-weight: 600;
+  }
+
+  /* Image styling */
+  img {
+    display: block;
+    padding: 0;
+    margin: 0.25rem auto 0.25rem auto;
+    border-radius: 0.125rem;
+    max-width: 100%;
   }
 `
