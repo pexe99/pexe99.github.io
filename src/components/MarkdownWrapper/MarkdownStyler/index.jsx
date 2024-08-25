@@ -256,10 +256,28 @@ export const MarkdownStyler = styled.section`
 
   /* Image styling */
   img {
-    display: block;
     padding: 0;
-    margin: 0.25rem auto 0.25rem auto;
+    margin: 0.25rem auto;
     border-radius: 0.125rem;
     max-width: 100%;
+  }
+
+  .gatsby-resp-image-wrapper {
+    margin: 0 !important;
+  }
+
+  .gatsby-resp-image-link {
+    margin-bottom: none;
+    border: none;
+    opacity: 1;
+  }
+
+  .gatsby-resp-image-figcaption {
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-size: 0.875rem;
+    color: rgba(55, 53, 47, 0.65);
+    margin: 0 !important;
+    padding: 0.375rem 0 0.375rem 0.125rem;
   }
 `

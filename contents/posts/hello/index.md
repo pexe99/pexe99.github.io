@@ -8,8 +8,6 @@ tags:
   - JavaScript
 ---
 
-![hey](https://picsum.photos/id/237/200/300)
-
 # Gatsby Transformer Remark - Markdown 지원 기능
 
 ## 1. 헤더 (Headers)
@@ -106,12 +104,12 @@ tags:
 
 - **기본 이미지**:
 
-![alt text](image.png)
+![This is a local picture](image-1.png)
 
-![Alt text](https://picsum.photos/id/237/200/300)
+![This is not a local picture](https://fastly.picsum.photos/id/67/2848/4288.jpg?hmac=X_Z0Wdd3HiJ8eWT0ohdmpRSIA6e6s265INUMuHA8MqA)
 
 ```markdown
-![Alt text](https://example.com/image.jpg)
+![This is not a local picture](https://example.com/image.jpg)
 ```
 
 ## 5. 텍스트 스타일링 (Text Styling)
