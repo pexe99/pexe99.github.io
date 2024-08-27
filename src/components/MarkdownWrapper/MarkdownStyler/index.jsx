@@ -1,8 +1,7 @@
-import React from "react"
 import styled from "styled-components"
 
 export const MarkdownStyler = styled.section`
-  /* General styling for all elements inside the MarkdownStyler */
+  // General styling for all elements inside the MarkdownStyler
   * {
     padding: 0.188rem 0.125rem;
     margin: 0.125rem 0 0.0625rem 0;
@@ -10,19 +9,19 @@ export const MarkdownStyler = styled.section`
     color: ${props => props.theme.text};
   }
 
-  /* Strong (bold) text styling */
+  // Strong (bold) text styling
   strong {
     font-weight: 600 !important;
   }
 
-  /* Blockquote styling */
+  // Blockquote styling
   blockquote {
     width: 100%;
     height: fit-content;
     margin: 0.25rem 0;
     padding: 0 1rem;
     overflow: hidden;
-    border-left: 3px solid black;
+    border-left: 0.188rem solid ${props => props.theme.text};
     * {
       padding: 0 0.125rem;
     }
@@ -32,52 +31,52 @@ export const MarkdownStyler = styled.section`
     }
   }
 
-  /* Paragraph styling */
+  // Paragraph styling
   p {
     margin-top: 0.0625rem;
     font-size: 1rem;
   }
 
-  /* Inline code block styling */
+  // Inline code block styling
   * > code {
     padding: 0.2rem 0.4rem;
-    background: rgba(135, 131, 120, 0.15);
+    background: ${props => props.theme.mdInlineCodeBackground};
     border-radius: 0.25rem;
-    color: #eb5757;
+    color: ${props => props.theme.red};
     font-size: 85%;
     font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono",
       Courier, monospace;
   }
 
-  /* Anchor (link) styling */
+  // Anchor (link) styling
   a {
     margin-bottom: 0.125rem;
     padding-bottom: 0;
-    border-bottom: 0.05rem solid rgba(55, 53, 47, 0.4);
+    border-bottom: ${props => props.theme.mdAnchorBorder};
     opacity: 0.7;
   }
 
-  /* Emphasized (italic) text styling */
+  // Emphasized (italic) text styling
   em {
     font-style: italic !important;
   }
 
-  /* Deleted (strikethrough) text styling */
+  // Deleted (strikethrough) text styling
   del {
     text-decoration: line-through;
   }
 
-  /* Horizontal rule (divider) styling */
+  // Horizontal rule (divider) styling
   hr {
     width: 100%;
     margin: 0.438rem 0;
     height: 0.0625rem;
     padding: 0;
     border: none;
-    border-bottom: 1px solid rgba(55, 53, 47, 0.16);
+    border-bottom: ${props => props.theme.mdHrBorder};
   }
 
-  /* Headings (h1 - h6) styling */
+  // Headings (h1 - h6) styling
   h1,
   h2,
   h3,
@@ -90,7 +89,7 @@ export const MarkdownStyler = styled.section`
     line-height: 1.3;
   }
 
-  /* Specific heading level styling */
+  // Specific heading level styling
   h1 {
     margin-top: 2rem;
     margin-bottom: 0.25rem;
@@ -112,7 +111,7 @@ export const MarkdownStyler = styled.section`
     font-size: 1.25rem;
   }
 
-  /* Unordered list (ul) styling */
+  // Unordered list (ul) styling
   ul {
     width: 100%;
     list-style: disc;
@@ -120,7 +119,7 @@ export const MarkdownStyler = styled.section`
     padding: 0;
     padding-left: 1.625rem;
 
-    /* Nested unordered lists with different list styles */
+    // Nested unordered lists with different list styles
     ::marker {
       font-size: 18px;
     }
@@ -141,7 +140,7 @@ export const MarkdownStyler = styled.section`
     }
   }
 
-  /* List item (li) styling */
+  // List item (li) styling
   li {
     padding: 0.188rem 0.125rem;
     display: list-item;
@@ -149,7 +148,7 @@ export const MarkdownStyler = styled.section`
     list-style-position: outside;
   }
 
-  /* Ordered list (ol) styling */
+  // Ordered list (ol) styling
   ol {
     margin: 0;
     padding: 0;
@@ -161,34 +160,33 @@ export const MarkdownStyler = styled.section`
     }
   }
 
-  /* Task list (checklist) specific styling */
+  // Task list (checklist) specific styling
   .contains-task-list,
   .task-list-item {
     list-style: none;
     padding-left: 0;
   }
 
-  /* Checkbox styling */
+  // Checkbox styling
   ul > li input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;
     width: 1rem;
     height: 1rem;
-    background-color: #fff;
     border-radius: 0;
-    border: 0.125rem solid black;
+    border: 0.125rem solid ${props => props.theme.text};
     position: relative;
     margin: 0 0.25rem 0.188rem 0.375rem;
     vertical-align: middle;
   }
 
-  /* Checked checkbox styling */
+  // Checked checkbox styling
   .task-list-item input[type="checkbox"]:checked {
-    background-color: rgb(35, 131, 226);
-    border: 0.125rem solid rgb(35, 131, 226);
+    background-color: ${props => props.theme.blue};
+    border: 0.125rem solid ${props => props.theme.blue};
   }
 
-  /* Checked checkbox tick mark */
+  // Checked checkbox tick mark
   .task-list-item input[type="checkbox"]:checked::after {
     content: "";
     position: absolute;
@@ -201,22 +199,22 @@ export const MarkdownStyler = styled.section`
     transform: rotate(45deg);
   }
 
-  /* Strikethrough text when checkbox is checked */
+  // Strikethrough text when checkbox is checked
   .task-list-item input[type="checkbox"]:checked ~ * {
     text-decoration: line-through;
   }
 
-  /* Additional styling for checked task list items */
+  // Additional styling for checked task list items
   .task-list-item:has(input[type="checkbox"]:checked) {
-    text-decoration: line-through rgba(55, 53, 47, 0.25);
-    color: rgba(55, 53, 47, 0.65);
+    text-decoration: line-through ${props => props.theme.mdCheckboxTextline};
+    color: ${props => props.theme.weekText};
 
     & > * {
       text-decoration: none;
     }
   }
 
-  /* Table styling */
+  // Table styling
   table {
     width: 100vw;
     max-width: 100%;
@@ -228,7 +226,7 @@ export const MarkdownStyler = styled.section`
     overflow-x: auto;
   }
 
-  /* Table elements (tr, th, td, thead, tbody) reset */
+  // Table elements (tr, th, td, thead, tbody) reset
   tr,
   th,
   td,
@@ -238,23 +236,23 @@ export const MarkdownStyler = styled.section`
     padding: 0;
   }
 
-  /* Table header (th) and data cell (td) styling */
+  // Table header (th) and data cell (td) styling
   th,
   td {
     padding: 0.438rem 0.563rem;
-    border: 1px solid rgb(233, 233, 231);
+    border: 0.0625rem solid ${props => props.theme.mdTableBorder};
     min-width: 7.5rem;
     word-wrap: break-word;
     word-break: break-all;
   }
 
-  /* Table header (th) specific styling */
+  // Table header (th) specific styling
   th {
-    background: rgb(247, 246, 243);
+    background: ${props => props.theme.mdTableThBackground};
     font-weight: 600;
   }
 
-  /* Image styling */
+  // Image styling
   img {
     padding: 0;
     margin: 0.25rem auto;
@@ -276,7 +274,7 @@ export const MarkdownStyler = styled.section`
     white-space: pre-wrap;
     word-break: break-word;
     font-size: 0.875rem;
-    color: rgba(55, 53, 47, 0.65);
+    color: ${props => props.theme.weekText};
     margin: 0 !important;
     padding: 0.375rem 0 0.375rem 0.125rem;
   }

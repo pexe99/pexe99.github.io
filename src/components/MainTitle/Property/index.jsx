@@ -8,7 +8,7 @@ const PropertyConatainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   padding-bottom: 0.75rem;
   border-bottom: ${props => props.theme.divider};
 `

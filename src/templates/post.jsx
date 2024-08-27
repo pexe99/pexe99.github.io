@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import TOC from "../components/TOC"
 import MainTitle from "../components/MainTitle"
 import MarkdownWrapper from "../components/MarkdownWrapper"
 
@@ -16,6 +17,7 @@ const PostTemplate = ({ data }) => {
         icon={frontmatter.icon}
         tags={frontmatter.tags}
       />
+      <TOC />
       <MarkdownWrapper html={html} />
     </>
   )

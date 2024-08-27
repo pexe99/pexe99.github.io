@@ -40,7 +40,7 @@ const RedDot = styled.div`
   top: -0.0625rem;
   right: -0.0625rem;
   position: absolute;
-  background: ${props => props.theme.redDot};
+  background: ${props => props.theme.red};
 `
 
 const HeaderButton = styled.button`

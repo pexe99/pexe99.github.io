@@ -53,8 +53,9 @@ const EraseButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 50%;
   &:hover {
-    color: ${props => props.theme.searchIconHover};
+    background: ${props => props.theme.searchIconHover};
   }
 `
 
@@ -104,7 +105,7 @@ const NoResult = styled.div`
   button {
     line-height: 1.5;
     font-size: 0.875rem;
-    color: ${props => props.theme.searchCloseText};
+    color: ${props => props.theme.blue};
   }
 `
 
