@@ -65,6 +65,12 @@ module.exports = {
               wrapperStyle: "margin: 0.25rem 0; padding: 0;",
             },
           },
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              className: "autolinkHeader",
+            },
+          },
         ],
       },
     },

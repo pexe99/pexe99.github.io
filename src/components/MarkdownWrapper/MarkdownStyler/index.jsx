@@ -280,4 +280,8 @@ export const MarkdownStyler = styled.section`
     margin: 0 !important;
     padding: 0.375rem 0 0.375rem 0.125rem;
   }
+
+  .autolinkHeader {
+    opacity: 0;
+  }
 `
