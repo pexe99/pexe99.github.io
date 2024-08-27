@@ -1,8 +1,8 @@
 // src/components/Nav.jsx
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import Icon from "../../Icon"
-import { useTheme } from "../../../contexts/themeContext"
+import { ThemeContext, useTheme } from "../../../contexts/ThemeContext"
 import { links, additionalLinks } from "../../../../blog-config"
 import { navigate } from "gatsby"
 
@@ -57,7 +57,8 @@ const NavButton = styled.button`
 `
 
 const NavLinks = ({ $setSearchModalActive }) => {
-  const [ThemeMode, toggleTheme] = useTheme()
+  const { ThemeMode, toggleTheme } = useContext(ThemeContext)
+
   return (
     <NavButtonWrapper>
       <NavButton onClick={() => $setSearchModalActive(true)}>

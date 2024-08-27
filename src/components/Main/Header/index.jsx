@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import Icon from "../Icon/index.jsx"
+import Icon from "../../Icon"
 
 const HeaderWrapper = styled.header`
   display: flex;
