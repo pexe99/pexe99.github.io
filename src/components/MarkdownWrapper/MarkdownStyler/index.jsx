@@ -37,17 +37,6 @@ export const MarkdownStyler = styled.section`
     font-size: 1rem;
   }
 
-  // Inline code block styling
-  * > code {
-    padding: 0.2rem 0.4rem;
-    background: ${props => props.theme.mdInlineCodeBackground};
-    border-radius: 0.25rem;
-    color: ${props => props.theme.red};
-    font-size: 85%;
-    font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono",
-      Courier, monospace;
-  }
-
   // Anchor (link) styling
   a {
     margin-bottom: 0.125rem;

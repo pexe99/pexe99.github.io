@@ -29,4 +29,4 @@ const useTheme = () => {
   return [ThemeMode, toggleTheme]
 }
 
-export { ThemeProvider, useTheme }
+export { ThemeProvider, useTheme, ThemeContext }

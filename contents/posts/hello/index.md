@@ -174,15 +174,34 @@ tags:
 
 - **언어 지정 코드 블록**:
 
-  ````markdown
-  ```javascript
-  const hello = "world"
-  ```
-  ````
+```javascript
+function solution(cookie) {
+    let result = 0;
+    for(let i = 0; i < cookie.length - 1; i++) {
+        let cookieSet = new Set(), left = 0, right = 0;
+        for(let j = i; j >= 0; j--) {
+            left += cookie[j];
+            cookieSet.add(left);
+        }
+        for(let j = i + 1; j < cookie.length; j++) {
+            right += cookie[j];
+            if(cookieSet.has(right)) result = Math.max(result, right);
+        }
+        if(result >= cookie)
+    }
+    return result;
+}
+```
 
-  ```
+````markdown
+```javascript
+const hello = "world"
+```
+````
 
-  ```
+```
+
+```
 
 ## 7. 인용구 (Blockquotes)
 
