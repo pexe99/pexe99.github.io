@@ -53,11 +53,18 @@ const Layout = ({ children }) => {
     }
   `)
 
+  const LocalIsNavFixed = window.localStorage.getItem("isNavFixed")
   const [isNavVisible, setIsNavVisible] = useState(false)
-  const [isNavFixed, setIsNavFixed] = useState(false)
+  const [isNavFixed, setIsNavFixed] = useState(
+    LocalIsNavFixed !== null ? JSON.parse(LocalIsNavFixed) : "true"
+  )
   const [isMobile, _] = useState(
     "ontouchstart" in window || navigator.maxTouchPoints > 0
   )
+
+  useEffect(() => {
+    window.localStorage.setItem("isNavFixed", isNavFixed)
+  }, [isNavFixed])
 
   useEffect(() => {
     const handleMouseMove = event => {
