@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import Icon from "../../Icon"
 import { author } from "../../../../blog-config"
-import { FireCallbackInEffect } from "./../../../../.cache/head/components/fire-callback-in-effect"
 
 const PropertyConatainer = styled.div`
   display: flex;
@@ -78,16 +77,25 @@ const Property = ({ date, tags }) => {
     <PropertyConatainer>
       <PropertyWrapper>
         <PropertyTitle>
-          <Icon iconName="TbCalendarMonth" size="1rem" /> <span>Author</span>
+          <Icon iconName="TbUserEdit" size="1rem" /> <span>Author</span>
         </PropertyTitle>
-        <PropertyValue>@ {author}</PropertyValue>
+        <PropertyValue>@{author}</PropertyValue>
       </PropertyWrapper>
+
       <PropertyWrapper>
         <PropertyTitle>
           <Icon iconName="TbCalendarMonth" size="1rem" /> <span>Date</span>
         </PropertyTitle>
         <PropertyValue>{date}</PropertyValue>
       </PropertyWrapper>
+
+      <PropertyWrapper>
+        <PropertyTitle>
+          <Icon iconName="TbLayoutList" size="1rem" /> <span>Series</span>
+        </PropertyTitle>
+        <PropertyValue>Series</PropertyValue>
+      </PropertyWrapper>
+
       <PropertyWrapper>
         <PropertyTitle>
           <Icon iconName="TbHash" size="1rem" /> <span>Tags</span>
