@@ -38,11 +38,11 @@ const BaseTheme = css`
     overflow: auto;
   }
 
-  :not(pre) > code[class*="language-"] {
-    padding: 0.2rem 0.4rem;
+  :not(pre) > code {
+    padding: 0.2rem 0.4rem !important;
     background: ${props => props.theme.mdInlineCodeBackground};
     border-radius: 0.25rem;
-    color: ${props => props.theme.red};
+    color: ${props => props.theme.red} !important;
     font-size: 85%;
   }
 

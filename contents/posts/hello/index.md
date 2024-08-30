@@ -8,6 +8,8 @@ tags:
   - JavaScript
 ---
 
+https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit
+
 # Gatsby Transformer Remark - Markdown 지원 기능
 
 ## 1. 헤더 (Headers)

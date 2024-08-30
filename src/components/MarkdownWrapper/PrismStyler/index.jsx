@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { ThemeContext } from "../../../contexts/themeContext"
+import { ThemeContext } from "../../../contexts/ThemeContext"
 import LightMode from "./LightMode"
 import BaseMode from "./BaseMode"
 import DarkMode from "./DarkMode"
