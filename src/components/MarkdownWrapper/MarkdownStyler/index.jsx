@@ -281,6 +281,11 @@ export const MarkdownStyler = styled.section`
     opacity: 0;
   }
 
+  .footnote-ref {
+    font-size: 0.75rem;
+    margin-left: 0.25rem;
+  }
+
   // code block margin
   .gatsby-highlight {
     margin: 0.25rem 0;
@@ -294,6 +299,10 @@ export const MarkdownStyler = styled.section`
     &:hover {
       background-color: ${props => props.theme.buttonHover};
     }
+  }
+
+  .katex-mathml {
+    display: none;
   }
 
   .math .katex-html {
