@@ -3,8 +3,6 @@ import styled from "styled-components"
 export const MarkdownStyler = styled.section`
   // General styling for all elements inside the MarkdownStyler
   * {
-    padding: 0.188rem 0.125rem;
-    margin: 0.125rem 0 0.0625rem 0;
     line-height: 1.5;
     color: ${props => props.theme.text};
   }
@@ -33,12 +31,16 @@ export const MarkdownStyler = styled.section`
 
   // Paragraph styling
   p {
+    padding: 0.188rem 0.125rem;
+    margin: 0.125rem 0 0.0625rem 0;
     margin-top: 0.0625rem;
     font-size: 1rem;
   }
 
   // Anchor (link) styling
   a {
+    padding: 0.188rem 0.125rem;
+    margin: 0.125rem 0 0.0625rem 0;
     margin-bottom: 0.125rem;
     padding-bottom: 0;
     border-bottom: ${props => props.theme.mdAnchorBorder};
@@ -72,6 +74,8 @@ export const MarkdownStyler = styled.section`
   h4,
   h5,
   h6 {
+    padding: 0.188rem 0.125rem;
+    margin: 0.125rem 0 0.0625rem 0;
     white-space: pre-wrap;
     word-break: break-word;
     font-weight: 600;
@@ -131,6 +135,7 @@ export const MarkdownStyler = styled.section`
 
   // List item (li) styling
   li {
+    margin: 0.125rem 0 0.0625rem 0;
     padding: 0.188rem 0.125rem;
     display: list-item;
     height: fit-content;
@@ -152,12 +157,15 @@ export const MarkdownStyler = styled.section`
   // Task list (checklist) specific styling
   .contains-task-list,
   .task-list-item {
+    padding: 0.188rem 0.125rem;
+    margin: 0.125rem 0 0.0625rem 0;
     list-style: none;
     padding-left: 0;
   }
 
   // Checkbox styling
   ul > li input[type="checkbox"] {
+    padding: 0.188rem 0.125rem;
     appearance: none;
     -webkit-appearance: none;
     width: 1rem;
@@ -210,6 +218,7 @@ export const MarkdownStyler = styled.section`
     border-collapse: collapse;
     font-size: 0.875rem;
     text-align: left;
+    padding: 0.188rem 0.125rem;
     margin: 0.5rem 0 1.125rem 0;
     display: block;
     overflow-x: auto;
@@ -270,5 +279,24 @@ export const MarkdownStyler = styled.section`
 
   .autolinkHeader {
     opacity: 0;
+  }
+
+  // code block margin
+  .gatsby-highlight {
+    margin: 0.25rem 0;
+  }
+
+  // katex block
+  .math-display {
+    margin: 0.25rem 0;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    &:hover {
+      background-color: ${props => props.theme.buttonHover};
+    }
+  }
+
+  .math .katex-html {
+    white-space: pre-line;
   }
 `

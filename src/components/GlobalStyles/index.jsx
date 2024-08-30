@@ -6,7 +6,6 @@ const GlobalStyles = createGlobalStyle`
     ${reset}
     
     * {
-    font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !important;
         box-sizing: border-box;
         text-decoration: none;
         -webkit-text-size-adjust: 100%;
@@ -38,6 +37,7 @@ const GlobalStyles = createGlobalStyle`
     }
     
     body {
+        font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
         background-color: ${props => props.theme.background};
     }
 

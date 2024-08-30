@@ -5,7 +5,7 @@ import styled from "styled-components"
 const TocWrapper = styled.div`
   width: 100%;
   padding: 1rem 1rem 1rem 0.75rem;
-  margin: 0.25rem 0;
+  margin: 0.25rem 0 1.25rem 0;
   border-radius: 0.25rem;
   border: ${props => props.theme.calloutBorder};
   color: ${props => props.theme.icon};

@@ -8,7 +8,12 @@ tags:
   - JavaScript
 ---
 
-https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit
+이건 인라인 수식 예제야. $a^2 + b^2 = c^2$ 어떻게 나오는지 볼까?
+
+$$
+\int_{-\infin}^{\infin}f(x)dx=\int_{0}^{2}c(4x-2x^2)dx=c[2x^2-\cfrac{2}{3}x^2]_0^2=\cfrac{8}{3}c=1
+\int_{-\infin}^{\infin}f(x)dx=\int_{0}^{2}c(4x-2x^2)dx=c[2x^2-\cfrac{2}{3}x^2]_0^2=\cfrac{8}{3}c=1
+$$
 
 # Gatsby Transformer Remark - Markdown 지원 기능
 
