@@ -2,7 +2,7 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
 import Icon from "../../Icon"
-import { blogIcon, blogName } from "../../../../blog-config.js"
+import { mainIcon, blogName } from "../../../../blog-config.js"
 import { MobileContext } from "../../../contexts/MobileContext/index.jsx"
 import { NavContext } from "../../../contexts/NavContext/index.jsx"
 
@@ -81,7 +81,7 @@ const NavHeader = () => {
     <HeaderWrapper>
       <BlogTitle>
         <IconWrapper>
-          <Icon iconName={blogIcon} size="1.375rem" />
+          <Icon iconName={mainIcon} size="1.375rem" />
           <RedDot />
         </IconWrapper>
         <span>{blogName}</span>

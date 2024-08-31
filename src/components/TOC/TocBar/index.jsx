@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import TocDetail from "./TocDetail"
 import TocMin from "./TocMin"
 import { MobileContext } from "../../../contexts/MobileContext"
@@ -14,8 +14,16 @@ const TocWrapper = styled.div`
   top: 0;
   right: 0;
   z-index: 100;
-  @media (max-width: (${props =>
-      props.$isNavFixed && !props.$isMobile ? "68.75rem" : "53.25rem"})) {
+  ${props =>
+    props.$isNavFixed &&
+    !props.$isMobile &&
+    css`
+      @media (max-width: 68.75rem) {
+        display: none;
+      }
+    `}
+
+  @media (max-width: 53.25rem) {
     display: none;
   }
 `

@@ -1,6 +1,8 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
 import Icon from "../../Icon"
+import { navigate } from "gatsby"
+import { mainIcon, blogName } from "../../../../blog-config.js"
 import { NavContext } from "../../../contexts/NavContext"
 
 const HeaderWrapper = styled.header`
@@ -49,6 +51,32 @@ const MenuIcon = styled(Icon)`
   transition: opacity 200ms ease;
 `
 
+const MainTitleButton = styled.button`
+  padding: 0 0.375rem;
+  height: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 0.25rem;
+  line-height: 1.2;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  gap: 0.375rem;
+  color: ${props => props.theme.icon};
+  span {
+    padding-top: 0.125rem;
+    color: ${props => props.theme.text};
+  }
+  &:hover {
+    background: ${props => props.theme.buttonHover};
+  }
+  &:active {
+    background: ${props => props.theme.buttonActive};
+  }
+  transition: 20ms ease-in 0s;
+`
+
 const MiddleContainer = styled.div`
   flex: 1 1 auto;
 `
@@ -91,6 +119,10 @@ const Header = () => {
           </MenuButton>
         </MenuButtonWrapper>
       )}
+      <MainTitleButton onClick={() => navigate("/")}>
+        <Icon iconName={mainIcon} size="1.375rem" />
+        <span>{blogName}</span>
+      </MainTitleButton>
       <MiddleContainer />
       <ShareButton>
         <span>Share</span>

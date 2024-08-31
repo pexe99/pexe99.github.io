@@ -3,14 +3,14 @@ module.exports = {
   // Required Section Start
   // ######################
 
-  // Main page ttitle
+  // Main page title
   title: "WELCOME, IT’S YOUR OWN BLOG",
 
   // Main page description (callout)
   description:
     "A Gatsby Starter Project to create your own dev blog with a minimalist Notion-inspired theme. Built by a Notion fan.",
 
-  // Navigation bar blog name
+  // blog name
   blogName: "Notionant.dev",
 
   // Post author name
@@ -22,8 +22,7 @@ module.exports = {
   // https://react-icons.github.io/react-icons/icons/tb/
   // main: Main page icon
   // profile: Navigation bar author icon
-  mainIcon: "TbDeviceDesktopCode",
-  blogIcon: "TbApiApp",
+  mainIcon: "TbBrain",
 
   // ######################
   // Required Section End
