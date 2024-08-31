@@ -36,8 +36,9 @@ const TocBar = ({ tocData, handleClickLink }) => {
       }
     )
 
-    tocData.forEach(item => {
+    tocData.forEach((item, index) => {
       const element = document.getElementById(item.id)
+      if (index === 0) setActiveId(item.id)
       if (element) {
         observer.observe(element)
       }

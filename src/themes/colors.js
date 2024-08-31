@@ -62,6 +62,14 @@ export const lightTheme = {
   tocLinkBottom:
     "linear-gradient(to right, rgba(55, 53, 47, 0.16) 0%, rgba(55, 53, 47, 0.16) 100%)",
 
+  // toc bar
+  tocBarShadow:
+    "rgba(15, 15, 15, 0.04) 0 0 0 0.0625rem, rgba(15, 15, 15, 0.03) 0 0.188rem 0.375rem, rgba(15, 15, 15, 0.06) 0 0.563rem 1.5rem",
+  tocBarBorder: "0.0625rem solid rgba(55, 53, 47, 0.06)",
+  tocTextWeek: "rgb(120, 119, 116)",
+  tocMinBarBackground: "rgb(227, 226, 224)",
+  tocMinShadow: "none",
+
   // markdown
   mdAnchorBorder: "0.05rem solid rgba(55, 53, 47, 0.4)",
   mdInlineCodeBackground: "rgba(135, 131, 120, 0.15)",
@@ -136,9 +144,11 @@ export const darkTheme = {
 
   // toc bar
   tocBarShadow:
-    "rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px",
-  tocBarBorder: "1px solid rgba(255, 255, 255, 0.055)",
+    "rgba(15, 15, 15, 0.05) 0 0 0 0.0625rem, rgba(15, 15, 15, 0.1) 0 0.188rem 0.375rem, rgba(15, 15, 15, 0.2) 0 0.563rem 1.5rem",
+  tocBarBorder: "0.0625rem solid rgba(255, 255, 255, 0.055)",
   tocTextWeek: "rgb(127, 127, 127)",
+  tocMinBarBackground: "rgb(90, 90, 90)",
+  tocMinShadow: "rgb(211, 211, 211) 0rem 0rem 0.188rem",
 
   // markdown
   mdAnchorBorder: "0.05rem solid rgba(255, 255, 255, 0.283)",

@@ -40,8 +40,8 @@ const TocMinBar = styled.div`
   border-radius: 0.125rem;
   transition: background 0.2s, box-shadow 0.2s;
   background: ${props =>
-    props.$isActive ? props.theme.text : "rgb(90, 90, 90)"};
-  box-shadow: ${props => props.$isActive && "rgb(211, 211, 211) 0px 0px 3px"};
+    props.$isActive ? props.theme.text : props.theme.tocMinBarBackground};
+  box-shadow: ${props => props.$isActive && props.theme.tocMinShadow};
 `
 
 const TocMin = ({ tocData, activeId }) => {
