@@ -3,6 +3,7 @@ import styled from "styled-components"
 import TocDetail from "./TocDetail"
 import TocMin from "./TocMin"
 import { MobileContext } from "../../../contexts/MobileContext"
+import { NavContext } from "../../../contexts/NavContext"
 
 const TocWrapper = styled.div`
   display: flex;
@@ -13,7 +14,8 @@ const TocWrapper = styled.div`
   top: 0;
   right: 0;
   z-index: 100;
-  @media (max-width: 53.25rem) {
+  @media (max-width: (${props =>
+      props.$isNavFixed && !props.$isMobile ? "68.75rem" : "53.25rem"})) {
     display: none;
   }
 `
@@ -22,6 +24,7 @@ const TocBar = ({ tocData, handleClickLink }) => {
   const [activeId, setActiveId] = useState("")
   const [isHovered, setIsHovered] = useState(false)
   const { isMobile } = useContext(MobileContext)
+  const { isNavFixed } = useContext(NavContext)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -59,6 +62,8 @@ const TocBar = ({ tocData, handleClickLink }) => {
   return (
     <>
       <TocWrapper
+        $isMobile={isMobile}
+        $isNavFixed={isNavFixed}
         onMouseEnter={() => setIsHovered(!isMobile && true)}
         onMouseLeave={() => setIsHovered(false)}
       >
