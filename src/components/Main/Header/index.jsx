@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import Icon from "../../Icon"
+import { NavContext } from "../../../contexts/NavContext"
 
 const HeaderWrapper = styled.header`
   display: flex;
@@ -70,21 +71,22 @@ const ShareButton = styled.button`
   transition: 20ms ease-in 0s;
 `
 
-const Header = ({ $isVisible, $isFixed, setIsNavFixed }) => {
+const Header = () => {
+  const { isNavVisible, isNavFixed, setIsNavFixed } = useContext(NavContext)
   return (
     <HeaderWrapper>
-      {!$isFixed && (
+      {!isNavFixed && (
         <MenuButtonWrapper>
           <MenuButton onClick={() => setIsNavFixed(true)}>
             <MenuIcon
               iconName="TbMenu2"
               size="1.375rem"
-              $isVisible={!$isVisible}
+              $isVisible={!isNavVisible}
             />
             <MenuIcon
               iconName="TbChevronsRight"
               size="1.375rem"
-              $isVisible={$isVisible}
+              $isVisible={isNavVisible}
             />
           </MenuButton>
         </MenuButtonWrapper>

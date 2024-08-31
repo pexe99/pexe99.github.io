@@ -2,7 +2,7 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
 import Icon from "../../Icon"
-import { ThemeContext, useTheme } from "../../../contexts/ThemeContext"
+import { ThemeContext } from "../../../contexts/ThemeContext"
 import { links, additionalLinks } from "../../../../blog-config"
 import { navigate } from "gatsby"
 

@@ -3,6 +3,7 @@ import Header from "./Header"
 import Body from "./Body"
 import styled from "styled-components"
 import { MobileContext } from "../../contexts/MobileContext"
+import { NavContext } from "../../contexts/NavContext"
 
 const ContentContainer = styled.div`
   position: relative;
@@ -16,16 +17,13 @@ const ContentContainer = styled.div`
   transition: margin-left 200ms ease, width 200ms ease;
 `
 
-const Main = ({ $isVisible, $isNavFixed, setIsNavFixed, children }) => {
+const Main = ({ children }) => {
   const { isMobile } = useContext(MobileContext)
+  const { isNavFixed } = useContext(NavContext)
 
   return (
-    <ContentContainer $isNavFixed={$isNavFixed} $isMobile={isMobile}>
-      <Header
-        $isVisible={$isVisible}
-        $isFixed={$isNavFixed}
-        setIsNavFixed={setIsNavFixed}
-      />
+    <ContentContainer $isNavFixed={isNavFixed} $isMobile={isMobile}>
+      <Header />
       <Body>{children}</Body>
     </ContentContainer>
   )

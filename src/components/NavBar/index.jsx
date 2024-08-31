@@ -6,6 +6,7 @@ import NavLinks from "./NavLinks"
 import NavTags from "./NavTags"
 import SearchDialog from "./SearchDialog"
 import { MobileContext } from "../../contexts/MobileContext"
+import { NavContext } from "../../contexts/NavContext"
 
 const Navigation = styled.nav`
   position: ${props => (props.$isMobile ? "fixed" : "static")};
@@ -52,8 +53,9 @@ const Navigation = styled.nav`
   }
 `
 
-const NavBar = ({ $isVisible, $isFixed, setIsNavFixed }) => {
+const NavBar = () => {
   const { isMobile } = useContext(MobileContext)
+  const { isNavFixed, isNavVisible, setIsNavFixed } = useContext(NavContext)
   const [searchModalActive, setSearchModalActive] = useState(false)
 
   return (
@@ -61,17 +63,15 @@ const NavBar = ({ $isVisible, $isFixed, setIsNavFixed }) => {
       {searchModalActive && (
         <SearchDialog $setSearchModalActive={setSearchModalActive} />
       )}
-      {isMobile && $isFixed && <Dimmer onClick={() => setIsNavFixed(false)} />}
+      {isMobile && isNavFixed && (
+        <Dimmer onClick={() => setIsNavFixed(false)} />
+      )}
       <Navigation
-        $isVisible={$isVisible}
-        $isFixed={$isFixed}
         $isMobile={isMobile}
+        $isFixed={isNavFixed}
+        $isVisible={isNavVisible}
       >
-        <NavHeader
-          $isFixed={$isFixed}
-          $isMobile={isMobile}
-          changeNavStatic={() => setIsNavFixed(false)}
-        />
+        <NavHeader />
         <NavLinks $setSearchModalActive={setSearchModalActive} />
         <NavTags />
       </Navigation>

@@ -18,51 +18,12 @@ const LayoutWrapper = styled.div`
 `
 
 const Layout = ({ children }) => {
-  const LocalIsNavFixed = window.localStorage.getItem("isNavFixed")
-  const [isNavVisible, setIsNavVisible] = useState(false)
-  const [isNavFixed, setIsNavFixed] = useState(
-    LocalIsNavFixed !== null ? JSON.parse(LocalIsNavFixed) : "true"
-  )
-
-  useEffect(() => {
-    window.localStorage.setItem("isNavFixed", isNavFixed)
-  }, [isNavFixed])
-
-  useEffect(() => {
-    const handleMouseMove = event => {
-      const threshold =
-        isNavVisible || isNavFixed
-          ? 248
-          : Math.max(window.innerWidth * 0.03, 24)
-      if (event.clientX < threshold) {
-        setIsNavVisible(true)
-      } else {
-        setIsNavVisible(false)
-      }
-    }
-
-    window.addEventListener("mousemove", handleMouseMove)
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove)
-    }
-  }, [isNavVisible, isNavFixed])
-
   return (
     <ContextProvider>
       <GlobalStyles />
       <LayoutWrapper>
-        <NavBar
-          $isVisible={isNavVisible}
-          $isFixed={isNavFixed}
-          setIsNavFixed={setIsNavFixed}
-        />
-        <Main
-          $isVisible={isNavVisible}
-          $isNavFixed={isNavFixed}
-          setIsNavFixed={setIsNavFixed}
-        >
-          {children}
-        </Main>
+        <NavBar />
+        <Main>{children}</Main>
       </LayoutWrapper>
     </ContextProvider>
   )

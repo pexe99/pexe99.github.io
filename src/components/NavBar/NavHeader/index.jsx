@@ -1,8 +1,10 @@
 // src/components/Nav.jsx
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import Icon from "../../Icon"
 import { blogIcon, blogName } from "../../../../blog-config.js"
+import { MobileContext } from "../../../contexts/MobileContext/index.jsx"
+import { NavContext } from "../../../contexts/NavContext/index.jsx"
 
 const HeaderWrapper = styled.div`
   height: 2rem;
@@ -71,28 +73,33 @@ const HeaderButton = styled.button`
   transition: 20ms ease-in 0s;
 `
 
-const NavHeader = ({ $isFixed, $isMobile, changeNavStatic }) => (
-  <HeaderWrapper>
-    <BlogTitle>
-      <IconWrapper>
-        <Icon iconName={blogIcon} size="1.375rem" />
-        <RedDot />
-      </IconWrapper>
-      <span>{blogName}</span>
-    </BlogTitle>
-    {$isFixed && !$isMobile && (
-      <HeaderButton onClick={changeNavStatic}>
-        <Icon
-          iconName="TbChevronsLeft"
-          className="closeButton"
-          size="1.375rem"
-        />
+const NavHeader = () => {
+  const { isMobile } = useContext(MobileContext)
+  const { isNavFixed, setIsNavFixed } = useContext(NavContext)
+
+  return (
+    <HeaderWrapper>
+      <BlogTitle>
+        <IconWrapper>
+          <Icon iconName={blogIcon} size="1.375rem" />
+          <RedDot />
+        </IconWrapper>
+        <span>{blogName}</span>
+      </BlogTitle>
+      {isNavFixed && !isMobile && (
+        <HeaderButton onClick={() => setIsNavFixed(false)}>
+          <Icon
+            iconName="TbChevronsLeft"
+            className="closeButton"
+            size="1.375rem"
+          />
+        </HeaderButton>
+      )}
+      <HeaderButton>
+        <Icon iconName="TbEdit" size="1.25rem" />
       </HeaderButton>
-    )}
-    <HeaderButton>
-      <Icon iconName="TbEdit" size="1.25rem" />
-    </HeaderButton>
-  </HeaderWrapper>
-)
+    </HeaderWrapper>
+  )
+}
 
 export default NavHeader
