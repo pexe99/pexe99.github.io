@@ -3,7 +3,6 @@ import TocBar from "./TocBar"
 import TocCallout from "./TocCallout"
 
 const TOC = () => {
-  const [toc, setToc] = useState([])
   const [tocData, setTocData] = useState([])
 
   useEffect(() => {
@@ -12,7 +11,6 @@ const TOC = () => {
         ".markdown > h1, .markdown > h2, .markdown > h3"
       )
     )
-    setToc(tocElements)
 
     const generatedTocData = generateTocData(tocElements)
     setTocData(generatedTocData)

@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import styled from "styled-components"
 import TocDetail from "./TocDetail"
 import TocMin from "./TocMin"
+import { MobileContext } from "../../../contexts/MobileContext"
 
 const TocWrapper = styled.div`
   display: flex;
@@ -20,6 +21,7 @@ const TocWrapper = styled.div`
 const TocBar = ({ tocData, handleClickLink }) => {
   const [activeId, setActiveId] = useState("")
   const [isHovered, setIsHovered] = useState(false)
+  const { isMobile } = useContext(MobileContext)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -57,16 +59,18 @@ const TocBar = ({ tocData, handleClickLink }) => {
   return (
     <>
       <TocWrapper
-        onMouseEnter={() => setIsHovered(true)}
+        onMouseEnter={() => setIsHovered(!isMobile && true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <TocDetail
-          tocData={tocData}
-          handleClickLink={handleClickLink}
-          activeId={activeId}
-          $isHovered={isHovered}
-        />
-        {isHovered || <TocMin tocData={tocData} activeId={activeId} />}
+        {isMobile || (
+          <TocDetail
+            tocData={tocData}
+            handleClickLink={handleClickLink}
+            activeId={activeId}
+            $isHovered={isHovered}
+          />
+        )}
+        {!isHovered && <TocMin tocData={tocData} activeId={activeId} />}
       </TocWrapper>
     </>
   )
