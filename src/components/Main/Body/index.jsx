@@ -16,6 +16,7 @@ const MainContainer = styled.main`
 `
 
 const ScrollWrapper = styled.div`
+  position: static !important;
   width: 100%;
   max-width: 47.25rem;
   margin: auto;

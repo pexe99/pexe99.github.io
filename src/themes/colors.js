@@ -134,6 +134,12 @@ export const darkTheme = {
   tocLinkBottom:
     "linear-gradient(to right, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.13) 100%)",
 
+  // toc bar
+  tocBarShadow:
+    "rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px",
+  tocBarBorder: "1px solid rgba(255, 255, 255, 0.055)",
+  tocTextWeek: "rgb(127, 127, 127)",
+
   // markdown
   mdAnchorBorder: "0.05rem solid rgba(255, 255, 255, 0.283)",
   mdInlineCodeBackground: "rgba(135, 131, 120, 0.15)",
