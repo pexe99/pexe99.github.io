@@ -4,7 +4,6 @@ import styled from "styled-components"
 import Icon from "../../Icon"
 import { ThemeContext } from "../../../contexts/ThemeContext"
 import { links, additionalLinks } from "../../../../blog-config"
-import { navigate } from "gatsby"
 
 const ICON_LIST = {
   github: "TbBrandGithub",
@@ -56,7 +55,7 @@ const NavButton = styled.button`
   transition: 20ms ease-in 0s;
 `
 
-const NavLinks = ({ $setSearchModalActive }) => {
+const NavLinks = ({ $setSearchModalActive, customNavigate }) => {
   const { ThemeMode, toggleTheme } = useContext(ThemeContext)
 
   return (
@@ -72,11 +71,11 @@ const NavLinks = ({ $setSearchModalActive }) => {
         />
         <span>Change to {ThemeMode === "dark" ? "Light" : "Dark"}</span>
       </NavButton>
-      <NavButton onClick={() => navigate("/")}>
+      <NavButton onClick={() => customNavigate("/")}>
         <Icon iconName="TbSmartHome" size="1.25rem" />
         <span>Home</span>
       </NavButton>
-      <NavButton>
+      <NavButton onClick={() => customNavigate("/series/")}>
         <Icon iconName="TbLayoutList" size="1.25rem" />
         <span>Series</span>
       </NavButton>

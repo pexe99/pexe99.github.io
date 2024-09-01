@@ -2,7 +2,6 @@
 import React, { useRef, useEffect } from "react"
 import styled from "styled-components"
 import Icon from "../../Icon"
-import { navigate } from "gatsby"
 
 const Divider = styled.div`
   width: 100%;
@@ -85,7 +84,7 @@ const TagButton = styled.button`
   transition: background 20ms ease-in 0s;
 `
 
-const NavTags = ({ tags }) => {
+const NavTags = ({ tags, customNavigate }) => {
   const navRef = useRef(null)
   const dividerRef = useRef(null)
 
@@ -112,7 +111,7 @@ const NavTags = ({ tags }) => {
       <TagWrapper ref={navRef}>
         <TagTitle>Tags</TagTitle>
         {tags?.map(tag => (
-          <TagButton key={tag} onClick={() => navigate(`/tags/${tag}/`)}>
+          <TagButton key={tag} onClick={() => customNavigate(`/tags/${tag}/`)}>
             <Icon className="tagIcon" iconName="TbHash" size="1.25rem" />
             <Icon className="arrowIcon" iconName="TbChevronRight" size="1rem" />
             <span>{tag}</span>

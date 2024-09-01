@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react"
 import styled from "styled-components"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, navigate, useStaticQuery } from "gatsby"
 import { Dimmer } from "../Dimmer"
 import NavHeader from "./NavHeader"
 import NavLinks from "./NavLinks"
@@ -59,6 +59,11 @@ const NavBar = () => {
   const { isNavFixed, isNavVisible, setIsNavFixed } = useContext(NavContext)
   const [searchModalActive, setSearchModalActive] = useState(false)
 
+  const customNavigate = to => {
+    if (isMobile) setIsNavFixed(false)
+    navigate(to)
+  }
+
   const data = useStaticQuery(graphql`
     query {
       allMarkdownRemark {
@@ -86,8 +91,11 @@ const NavBar = () => {
         $isVisible={isNavVisible}
       >
         <NavHeader />
-        <NavLinks $setSearchModalActive={setSearchModalActive} />
-        <NavTags tags={tags} />
+        <NavLinks
+          $setSearchModalActive={setSearchModalActive}
+          customNavigate={customNavigate}
+        />
+        <NavTags tags={tags} customNavigate={customNavigate} />
       </Navigation>
     </>
   )
