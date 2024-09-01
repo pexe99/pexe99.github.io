@@ -11,7 +11,7 @@ const SeriesTemplate = ({ data, pageContext }) => {
     <>
       <MainTitle
         type="main"
-        title={series}
+        title={`Series ↗\n${series}`}
         description={`There are ${posts.length} posts in the '${series}' series`}
         icon="TbFolderOpen"
       />

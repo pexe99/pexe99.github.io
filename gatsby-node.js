@@ -49,6 +49,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const posts = result.data.postsRemark.edges
   const series = result.data.seriesGroup.group
+  const tags = result.data.tagsGroup.group
 
   // Create individual post pages
   posts.forEach((post, index) => {
@@ -73,6 +74,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       component: path.resolve(`./src/templates/series.jsx`),
       context: {
         series: singleSeries.fieldValue,
+      },
+    })
+  })
+
+  // Create tag pages
+  tags.forEach(tag => {
+    createPage({
+      path: `/tags/${tag.fieldValue}/`,
+      component: path.resolve(`./src/templates/tags.jsx`),
+      context: {
+        tag: tag.fieldValue,
       },
     })
   })
