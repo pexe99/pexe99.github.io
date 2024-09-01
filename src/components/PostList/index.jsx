@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import styled from "styled-components"
 import PostCard from "./PostCard"
 import TabBar from "./TabBar"
@@ -32,18 +32,33 @@ const ListWrapper = styled.div`
 
 const PostList = ({ postInfo }) => {
   const [isGridView, setIsGridView] = useState(true)
+  const [visiblePosts, setVisiblePosts] = useState(10)
+  const [postsProps, setPostsProps] = useState([])
+  const observerRef = useRef(null)
 
-  const changeToGrid = () => {
-    setIsGridView(true)
+  const handleIntersection = entries => {
+    if (entries[0].isIntersecting) {
+      setVisiblePosts(prevCount => Math.min(prevCount + 10, postInfo.length))
+    }
   }
 
-  const changeToList = () => {
-    setIsGridView(false)
-  }
+  useEffect(() => {
+    const observer = new IntersectionObserver(handleIntersection, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 1,
+    })
 
-  const renderPosts = () => {
-    return postInfo.map(({ node }) => {
-      const commonProps = {
+    if (observerRef.current) observer.observe(observerRef.current)
+    return () => {
+      if (observerRef.current) observer.unobserve(observerRef.current)
+    }
+  }, [postInfo.length])
+
+  useEffect(() => {
+    const updatedPostsProps = postInfo
+      .slice(0, visiblePosts)
+      .map(({ node }) => ({
         key: node.id,
         to: node.fields.slug,
         title: node.frontmatter.title,
@@ -51,28 +66,36 @@ const PostList = ({ postInfo }) => {
         icon: node.frontmatter.icon,
         tags: node.frontmatter.tags,
         detail: node.excerpt,
-      }
-
-      return isGridView ? (
-        <PostCard {...commonProps} />
-      ) : (
-        <PostBlock {...commonProps} />
-      )
-    })
-  }
+      }))
+    setPostsProps(updatedPostsProps)
+  }, [visiblePosts, postInfo])
 
   return (
     <>
       <Title>All Posts</Title>
       <TabBar
         isGridView={isGridView}
-        changeToGrid={changeToGrid}
-        changeToList={changeToList}
+        changeToGrid={() => setIsGridView(true)}
+        changeToList={() => setIsGridView(false)}
       />
       {isGridView ? (
-        <GridWrapper>{renderPosts()}</GridWrapper>
+        <GridWrapper>
+          {postsProps.map(props => (
+            <PostCard {...props} />
+          ))}
+        </GridWrapper>
       ) : (
-        <ListWrapper>{renderPosts()}</ListWrapper>
+        <ListWrapper>
+          {postsProps.map(props => (
+            <PostBlock {...props} />
+          ))}
+        </ListWrapper>
+      )}
+      {visiblePosts < postInfo.length && (
+        <div
+          ref={observerRef}
+          style={{ height: "1rem", marginBottom: "10rem" }}
+        />
       )}
     </>
   )
