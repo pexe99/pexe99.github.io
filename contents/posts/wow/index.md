@@ -1,6 +1,6 @@
 ---
-title: "My First Post"
-date: "2024-06-27"
+title: "Test2"
+date: "2024-06-26"
 series: "hello world"
 icon: "TbAlienFilled"
 tags:

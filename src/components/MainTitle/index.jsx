@@ -46,6 +46,7 @@ const CalloutTextWrapper = styled.div`
   margin-left: 0.5rem;
   color: ${props => props.theme.text};
   line-height: 1.5;
+  text-align: left;
 `
 
 const MainTitle = ({ type = "main", title, description, icon, date, tags }) => {

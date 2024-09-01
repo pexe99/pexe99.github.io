@@ -26,6 +26,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               slug
             }
             id
+            frontmatter {
+              title
+            }
           }
         }
       }
@@ -39,12 +42,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const posts = result.data.allMarkdownRemark.edges
 
-  posts.forEach(({ node }) => {
+  posts.forEach((post, index) => {
+    const previous = index === 0 ? null : posts[index - 1].node
+    const next = index === posts.length - 1 ? null : posts[index + 1].node
+
     createPage({
-      path: node.fields.slug,
+      path: post.node.fields.slug,
       component: path.resolve(`./src/templates/post.jsx`),
       context: {
-        id: node.id,
+        id: post.node.id,
+        previousPostId: previous ? previous.id : null,
+        nextPostId: next ? next.id : null,
       },
     })
   })
