@@ -35,9 +35,11 @@ const TocDetailWrapper = styled.div`
 
 const ScrollWrapper = styled.div`
   width: 100%;
+  height: fit-content;
   padding: 0.375rem;
   display: flex;
   flex-direction: column;
+  flex: 0 0 auto;
   .toc-1 {
     margin-left: 0;
   }
@@ -47,9 +49,7 @@ const ScrollWrapper = styled.div`
   .toc-3 {
     margin-left: 1.5rem;
   }
-  & > :last-child {
-    padding-bottom: 0.75rem;
-  }
+  margin-bottom: 0.75rem;
 `
 
 const HeaderLink = styled.a`
@@ -66,7 +66,7 @@ const HeaderLink = styled.a`
   border-radius: 0.25rem;
   &:hover {
     background: ${props => props.theme.buttonHover};
-    color: ${props => props.theme.text};
+    color: ${props => !props.$isActive && props.theme.text};
   }
   transition: background 20ms ease-in;
 `
