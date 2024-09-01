@@ -55,10 +55,11 @@ const Database = ({
       rootMargin: "0px",
       threshold: 1,
     })
+    const currentObserver = observerRef.current
 
-    if (observerRef.current) observer.observe(observerRef.current)
+    if (currentObserver) observer.observe(currentObserver)
     return () => {
-      if (observerRef.current) observer.unobserve(observerRef.current)
+      if (currentObserver) observer.unobserve(currentObserver)
     }
   }, [data.length])
 
