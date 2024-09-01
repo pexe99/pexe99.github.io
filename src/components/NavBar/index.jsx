@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react"
 import styled from "styled-components"
+import { graphql, useStaticQuery } from "gatsby"
 import { Dimmer } from "../Dimmer"
 import NavHeader from "./NavHeader"
 import NavLinks from "./NavLinks"
@@ -58,6 +59,19 @@ const NavBar = () => {
   const { isNavFixed, isNavVisible, setIsNavFixed } = useContext(NavContext)
   const [searchModalActive, setSearchModalActive] = useState(false)
 
+  const data = useStaticQuery(graphql`
+    query {
+      allMarkdownRemark {
+        group(field: frontmatter___tags) {
+          fieldValue
+          totalCount
+        }
+      }
+    }
+  `)
+
+  const tags = data.allMarkdownRemark.group.map(tag => tag.fieldValue)
+
   return (
     <>
       {searchModalActive && (
@@ -73,7 +87,7 @@ const NavBar = () => {
       >
         <NavHeader />
         <NavLinks $setSearchModalActive={setSearchModalActive} />
-        <NavTags />
+        <NavTags tags={tags} />
       </Navigation>
     </>
   )
