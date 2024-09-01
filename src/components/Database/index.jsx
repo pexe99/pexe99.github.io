@@ -67,6 +67,7 @@ const Database = ({
       if (series)
         return {
           key: item.fieldValue,
+          to: `/series/${item.fieldValue}/`,
           icon: "TbFolderOpen",
           title: item.fieldValue,
           post: item.totalCount,

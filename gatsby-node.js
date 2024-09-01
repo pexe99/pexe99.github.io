@@ -1,35 +1,42 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
-
-  if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `pages` })
-    createNodeField({
-      node,
-      name: `slug`,
-      value: slug,
-    })
-  }
-}
-
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
+  // GraphQL 쿼리로 포스트, 태그, 시리즈 데이터를 가져옵니다.
   const result = await graphql(`
     {
-      allMarkdownRemark(sort: { frontmatter: { date: ASC } }, limit: 1000) {
+      postsRemark: allMarkdownRemark(
+        sort: { fields: [frontmatter___date], order: ASC }
+        limit: 1000
+      ) {
         edges {
           node {
+            id
             fields {
               slug
             }
-            id
             frontmatter {
               title
+              date(formatString: "MMMM DD, YYYY")
+              series
+              tags
             }
+            excerpt
           }
+        }
+      }
+      tagsGroup: allMarkdownRemark {
+        group(field: frontmatter___tags) {
+          fieldValue
+          totalCount
+        }
+      }
+      seriesGroup: allMarkdownRemark {
+        group(field: frontmatter___series) {
+          fieldValue
+          totalCount
         }
       }
     }
@@ -40,8 +47,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
 
-  const posts = result.data.allMarkdownRemark.edges
+  const posts = result.data.postsRemark.edges
+  const series = result.data.seriesGroup.group
 
+  // Create individual post pages
   posts.forEach((post, index) => {
     const previous = index === 0 ? null : posts[index - 1].node
     const next = index === posts.length - 1 ? null : posts[index + 1].node
@@ -56,4 +65,28 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       },
     })
   })
+
+  // Create series pages
+  series.forEach(singleSeries => {
+    createPage({
+      path: `/series/${singleSeries.fieldValue}/`,
+      component: path.resolve(`./src/templates/series.jsx`),
+      context: {
+        series: singleSeries.fieldValue,
+      },
+    })
+  })
+}
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
+
+  if (node.internal.type === `MarkdownRemark`) {
+    const slug = createFilePath({ node, getNode, basePath: `pages` })
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug,
+    })
+  }
 }
