@@ -34,7 +34,7 @@ export const NavProvider = ({ children }) => {
         window.removeEventListener("mousemove", handleMouseMove)
       }
     }
-  }, [isNavVisible, isNavFixed])
+  }, [isNavVisible, isNavFixed, isMobile])
 
   return (
     <NavContext.Provider

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import TocBar from "./TocBar"
 import TocCallout from "./TocCallout"
 
-const TOC = () => {
+const Toc = () => {
   const [tocData, setTocData] = useState([])
 
   useEffect(() => {
@@ -60,4 +60,4 @@ const TOC = () => {
   )
 }
 
-export default TOC
+export default Toc

@@ -43,13 +43,13 @@ const Database = ({
   const [dataProps, setDataProps] = useState([])
   const observerRef = useRef(null)
 
-  const handleIntersection = entries => {
-    if (entries[0].isIntersecting) {
-      setVisibleBlock(prevCount => Math.min(prevCount + 10, data.length))
-    }
-  }
-
   useEffect(() => {
+    const handleIntersection = entries => {
+      if (entries[0].isIntersecting) {
+        setVisibleBlock(prevCount => Math.min(prevCount + 10, data.length))
+      }
+    }
+
     const observer = new IntersectionObserver(handleIntersection, {
       root: null,
       rootMargin: "0px",
@@ -84,7 +84,7 @@ const Database = ({
         }
     })
     setDataProps(updatedBlockProps)
-  }, [visibleBlock, data])
+  }, [visibleBlock, data, series])
 
   return (
     <>

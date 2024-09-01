@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import TOC from "../components/TOC"
+import Toc from "../components/Toc"
 import MainTitle from "../components/MainTitle"
 import MarkdownWrapper from "../components/MarkdownWrapper"
 import PostLinks from "../components/PostLinks"
@@ -20,7 +20,7 @@ const PostTemplate = ({ data }) => {
         series={frontmatter.series}
         tags={frontmatter.tags}
       />
-      <TOC />
+      <Toc />
       <MarkdownWrapper html={html} />
       <PostLinks previous={previous} next={next} />
     </>
