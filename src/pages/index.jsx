@@ -1,7 +1,7 @@
 import * as React from "react"
 import Seo from "../components/seo"
 import MainTitle from "../components/MainTitle"
-import PostList from "../components/PostList"
+import Database from "../components/Database/index.jsx"
 import { graphql } from "gatsby"
 import { title, description, mainIcon } from "../../blog-config.js"
 
@@ -16,7 +16,7 @@ const IndexPage = ({ data }) => {
         description={description}
         icon={mainIcon}
       />
-      <PostList postInfo={initialPosts} />
+      <Database data={initialPosts} main />
     </>
   )
 }

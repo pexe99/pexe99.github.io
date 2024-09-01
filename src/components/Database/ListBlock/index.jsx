@@ -48,7 +48,7 @@ const InfoText = styled.span`
   color: ${props => props.theme.text};
 `
 
-const PostBlock = ({ to, title, date, icon, post }) => {
+const ListBlock = ({ to, title, date, icon, post }) => {
   return (
     <BlockWrapper as={Link} to={to}>
       <Icon iconName={icon} size="1.375rem" />
@@ -58,4 +58,4 @@ const PostBlock = ({ to, title, date, icon, post }) => {
   )
 }
 
-export default PostBlock
+export default ListBlock

@@ -1,7 +1,7 @@
 import React from "react"
 import MainTitle from "../components/MainTitle"
 import { graphql } from "gatsby"
-import PostList from "../components/PostList"
+import Database from "../components/Database"
 
 const SeriesPage = ({ data }) => {
   const seriesList = data.allMarkdownRemark.group
@@ -13,7 +13,7 @@ const SeriesPage = ({ data }) => {
         description={`${seriesList.length} series to dive into in this blog.`}
         icon="TbLayoutList"
       />
-      <PostList postInfo={seriesList} isSeries />
+      <Database data={seriesList} series />
     </>
   )
 }

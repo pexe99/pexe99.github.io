@@ -98,7 +98,7 @@ const Tag = styled.button`
   transition: 20ms ease-in 0s;
 `
 
-const PostCard = ({ to, title, date, icon, tags, detail }) => {
+const CardBlock = ({ to, title, date, icon, tags, detail }) => {
   return (
     <CardWrapper onClick={() => navigate(to)}>
       <CardThumbnail>
@@ -116,4 +116,4 @@ const PostCard = ({ to, title, date, icon, tags, detail }) => {
   )
 }
 
-export default PostCard
+export default CardBlock

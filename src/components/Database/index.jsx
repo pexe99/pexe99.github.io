@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from "react"
 import styled from "styled-components"
-import PostCard from "./PostCard"
 import TabBar from "./TabBar"
-import PostBlock from "./PostBlock"
+import CardBlock from "./CardBlock"
+import ListBlock from "./ListBlock"
+import NoData from "./NoData"
 
 const Title = styled.h2`
   flex: 0 1 auto;
@@ -30,15 +31,21 @@ const ListWrapper = styled.div`
   flex-direction: column;
 `
 
-const PostList = ({ postInfo, isSeries = false }) => {
-  const [isGridView, setIsGridView] = useState(!isSeries && true)
-  const [visiblePosts, setVisiblePosts] = useState(10)
-  const [postsProps, setPostsProps] = useState([])
+const Database = ({
+  data,
+  main = false,
+  series = false,
+  tags = false,
+  seriesPost = false,
+}) => {
+  const [isGridView, setIsGridView] = useState(!series)
+  const [visibleBlock, setVisibleBlock] = useState(10)
+  const [dataProps, setDataProps] = useState([])
   const observerRef = useRef(null)
 
   const handleIntersection = entries => {
     if (entries[0].isIntersecting) {
-      setVisiblePosts(prevCount => Math.min(prevCount + 10, postInfo.length))
+      setVisibleBlock(prevCount => Math.min(prevCount + 10, data.length))
     }
   }
 
@@ -53,13 +60,14 @@ const PostList = ({ postInfo, isSeries = false }) => {
     return () => {
       if (observerRef.current) observer.unobserve(observerRef.current)
     }
-  }, [postInfo.length])
+  }, [data.length])
 
   useEffect(() => {
-    const updatedPostsProps = postInfo.slice(0, visiblePosts).map(item => {
-      if (isSeries)
+    const updatedBlockProps = data.slice(0, visibleBlock).map(item => {
+      if (series)
         return {
           key: item.fieldValue,
+          icon: "TbFolderOpen",
           title: item.fieldValue,
           post: item.totalCount,
         }
@@ -74,32 +82,36 @@ const PostList = ({ postInfo, isSeries = false }) => {
           detail: item.node.excerpt,
         }
     })
-    setPostsProps(updatedPostsProps)
-  }, [visiblePosts, postInfo])
+    setDataProps(updatedBlockProps)
+  }, [visibleBlock, data])
 
   return (
     <>
-      <Title>{isSeries ? "All Series" : "All Posts"}</Title>
+      <Title>
+        {main && "All Posts"}
+        {series && "All Series"}
+      </Title>
       <TabBar
         isGridView={isGridView}
-        isSeries={isSeries}
+        isSeries={series}
         changeToGrid={() => setIsGridView(true)}
         changeToList={() => setIsGridView(false)}
       />
+      {!data.length && <NoData main={main} series={series} />}
       {isGridView ? (
         <GridWrapper>
-          {postsProps.map(props => (
-            <PostCard {...props} />
+          {dataProps.map(props => (
+            <CardBlock {...props} />
           ))}
         </GridWrapper>
       ) : (
         <ListWrapper>
-          {postsProps.map(props => (
-            <PostBlock {...props} />
+          {dataProps.map(props => (
+            <ListBlock {...props} />
           ))}
         </ListWrapper>
       )}
-      {visiblePosts < postInfo.length && (
+      {visibleBlock < data.length && (
         <div
           ref={observerRef}
           style={{ height: "1rem", marginBottom: "10rem" }}
@@ -109,4 +121,4 @@ const PostList = ({ postInfo, isSeries = false }) => {
   )
 }
 
-export default PostList
+export default Database
