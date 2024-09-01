@@ -45,15 +45,21 @@ const TabButton = styled.button`
   transition: 20ms ease-in 0s;
 `
 
-const TabBar = ({ isGridView, changeToGrid, changeToList }) => {
+const TabBar = ({ isGridView, changeToGrid, changeToList, isSeries }) => {
   return (
     <TabBarWrapper role="tablist">
-      <TabWrapper $isSelected={isGridView}>
-        <TabButton role="tab" aria-selected={isGridView} onClick={changeToGrid}>
-          <Icon iconName="TbLayoutGrid" size="1rem" />
-          <span>Grid view</span>
-        </TabButton>
-      </TabWrapper>
+      {isSeries || (
+        <TabWrapper $isSelected={isGridView}>
+          <TabButton
+            role="tab"
+            aria-selected={isGridView}
+            onClick={changeToGrid}
+          >
+            <Icon iconName="TbLayoutGrid" size="1rem" />
+            <span>Grid view</span>
+          </TabButton>
+        </TabWrapper>
+      )}
       <TabWrapper $isSelected={!isGridView}>
         <TabButton
           role="tab"

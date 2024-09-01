@@ -30,8 +30,8 @@ const ListWrapper = styled.div`
   flex-direction: column;
 `
 
-const PostList = ({ postInfo }) => {
-  const [isGridView, setIsGridView] = useState(true)
+const PostList = ({ postInfo, isSeries = false }) => {
+  const [isGridView, setIsGridView] = useState(!isSeries && true)
   const [visiblePosts, setVisiblePosts] = useState(10)
   const [postsProps, setPostsProps] = useState([])
   const observerRef = useRef(null)
@@ -56,25 +56,33 @@ const PostList = ({ postInfo }) => {
   }, [postInfo.length])
 
   useEffect(() => {
-    const updatedPostsProps = postInfo
-      .slice(0, visiblePosts)
-      .map(({ node }) => ({
-        key: node.id,
-        to: node.fields.slug,
-        title: node.frontmatter.title,
-        date: new Date(node.frontmatter.date).toLocaleDateString(),
-        icon: node.frontmatter.icon,
-        tags: node.frontmatter.tags,
-        detail: node.excerpt,
-      }))
+    const updatedPostsProps = postInfo.slice(0, visiblePosts).map(item => {
+      if (isSeries)
+        return {
+          key: item.fieldValue,
+          title: item.fieldValue,
+          post: item.totalCount,
+        }
+      else
+        return {
+          key: item.node.id,
+          to: item.node.fields.slug,
+          title: item.node.frontmatter.title,
+          date: new Date(item.node.frontmatter.date).toLocaleDateString(),
+          icon: item.node.frontmatter.icon,
+          tags: item.node.frontmatter.tags,
+          detail: item.node.excerpt,
+        }
+    })
     setPostsProps(updatedPostsProps)
   }, [visiblePosts, postInfo])
 
   return (
     <>
-      <Title>All Posts</Title>
+      <Title>{isSeries ? "All Series" : "All Posts"}</Title>
       <TabBar
         isGridView={isGridView}
+        isSeries={isSeries}
         changeToGrid={() => setIsGridView(true)}
         changeToList={() => setIsGridView(false)}
       />

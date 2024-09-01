@@ -49,7 +49,7 @@ const CalloutTextWrapper = styled.div`
   text-align: left;
 `
 
-const MainTitle = ({ type = "main", title, description, icon, date, tags }) => {
+const MainTitle = ({ type, title, description, icon, date, tags }) => {
   return (
     <>
       <MainIcon iconName={icon} size="4.875rem" />

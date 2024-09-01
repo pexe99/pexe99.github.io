@@ -48,12 +48,12 @@ const InfoText = styled.span`
   color: ${props => props.theme.text};
 `
 
-const PostBlock = ({ to, title, date, icon, tags, detail }) => {
+const PostBlock = ({ to, title, date, icon, post }) => {
   return (
     <BlockWrapper as={Link} to={to}>
       <Icon iconName={icon} size="1.375rem" />
       <Title>{title}</Title>
-      <InfoText>{date}</InfoText>
+      <InfoText>{date || `${post} posts`}</InfoText>
     </BlockWrapper>
   )
 }
