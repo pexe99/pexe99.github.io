@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import styled from "styled-components"
+import { useLocation } from "@reach/router"
 
 const MainContainer = styled.main`
   width: 100%;
@@ -26,8 +27,17 @@ const ScrollWrapper = styled.div`
 `
 
 const Body = ({ children }) => {
+  const scrollRef = useRef(null)
+  const location = useLocation()
+
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = 0
+    }
+  }, [location.pathname])
+
   return (
-    <MainContainer>
+    <MainContainer ref={scrollRef} key={location.pathname}>
       <ScrollWrapper>{children}</ScrollWrapper>
     </MainContainer>
   )
