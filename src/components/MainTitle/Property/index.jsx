@@ -120,12 +120,13 @@ const Property = ({ date, tags, series }) => {
           <Icon iconName="TbHash" size="1rem" /> <span>Tags</span>
         </PropertyTitle>
         <PropertyValue>
-          {tags &&
-            tags.map(tag => (
-              <Tag key={tag} onClick={() => navigate(`/tags/${tag}/`)}>
-                {tag}
-              </Tag>
-            ))}
+          {tags
+            ? tags.map(tag => (
+                <Tag key={tag} onClick={() => navigate(`/tags/${tag}/`)}>
+                  {tag}
+                </Tag>
+              ))
+            : "-"}
         </PropertyValue>
       </PropertyWrapper>
     </PropertyConatainer>

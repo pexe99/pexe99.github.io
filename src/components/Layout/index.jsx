@@ -4,6 +4,7 @@ import GlobalStyles from "../GlobalStyles"
 import NavBar from "../NavBar"
 import ContextProvider from "../../contexts"
 import Main from "../Main"
+import ToastContainer from "../ToastContainer"
 
 const LayoutWrapper = styled.div`
   width: 100vw;
@@ -25,6 +26,7 @@ const Layout = ({ children }) => {
         <NavBar />
         <Main>{children}</Main>
       </LayoutWrapper>
+      <ToastContainer />
     </ContextProvider>
   )
 }

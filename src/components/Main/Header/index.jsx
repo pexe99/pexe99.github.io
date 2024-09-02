@@ -4,6 +4,7 @@ import Icon from "../../Icon"
 import { navigate } from "gatsby"
 import { mainIcon, blogName } from "../../../../blog-config.js"
 import { NavContext } from "../../../contexts/NavContext"
+import { ToastContext } from "../../../contexts/ToastContext/index.jsx"
 
 const HeaderWrapper = styled.header`
   display: flex;
@@ -101,6 +102,8 @@ const ShareButton = styled.button`
 
 const Header = () => {
   const { isNavVisible, isNavFixed, setIsNavFixed } = useContext(NavContext)
+  const { addToast } = useContext(ToastContext)
+
   return (
     <HeaderWrapper>
       {!isNavFixed && (
@@ -124,7 +127,7 @@ const Header = () => {
         <span>{blogName}</span>
       </MainTitleButton>
       <MiddleContainer />
-      <ShareButton>
+      <ShareButton onClick={() => addToast("qwdwqwqd")}>
         <span>Share</span>
       </ShareButton>
     </HeaderWrapper>

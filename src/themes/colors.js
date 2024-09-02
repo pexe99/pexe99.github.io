@@ -77,6 +77,10 @@ export const lightTheme = {
   mdCheckboxTextline: "rgba(55, 53, 47, 0.25)",
   mdTableBorder: "rgb(233, 233, 231)",
   mdTableThBackground: "rgb(247, 246, 243)",
+
+  // toast
+  toastBackground: "rgb(15, 15, 15)",
+  toastText: "rgb(255, 255, 255)",
 }
 
 export const darkTheme = {
@@ -157,4 +161,8 @@ export const darkTheme = {
   mdCheckboxTextline: "rgb(127, 127, 127)",
   mdTableBorder: "rgb(47, 47, 47)",
   mdTableThBackground: "rgba(255, 255, 255, 0.03)",
+
+  // toast
+  toastBackground: "rgb(47, 47, 47)",
+  toastText: "rgb(255, 255, 255)",
 }
