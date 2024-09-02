@@ -104,6 +104,13 @@ const Header = () => {
   const { isNavVisible, isNavFixed, setIsNavFixed } = useContext(NavContext)
   const { addToast } = useContext(ToastContext)
 
+  const handleShareButtonClicked = () => {
+    navigator.clipboard
+      .writeText(window.location.href)
+      .then(() => addToast("Copy link complete"))
+      .catch(err => console.error("COPY FAILED ", err))
+  }
+
   return (
     <HeaderWrapper>
       {!isNavFixed && (
@@ -127,7 +134,7 @@ const Header = () => {
         <span>{blogName}</span>
       </MainTitleButton>
       <MiddleContainer />
-      <ShareButton onClick={() => addToast("qwdwqwqd")}>
+      <ShareButton onClick={() => handleShareButtonClicked()}>
         <span>Share</span>
       </ShareButton>
     </HeaderWrapper>
