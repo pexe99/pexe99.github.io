@@ -21,7 +21,7 @@ const SeriesPage = ({ data }) => {
 export const query = graphql`
   query {
     allMarkdownRemark {
-      group(field: frontmatter___series) {
+      group(field: { frontmatter: { series: SELECT } }) {
         fieldValue
         totalCount
       }
