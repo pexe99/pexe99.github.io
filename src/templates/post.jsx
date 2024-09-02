@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import MainTitle from "../components/MainTitle"
 import MarkdownWrapper from "../components/MarkdownWrapper"
 import PostLinks from "../components/PostLinks"
-import Toc from "src/components/Toc"
+import Toc from "../components/Toc"
 
 const PostTemplate = ({ data }) => {
   const post = data.markdownRemark
