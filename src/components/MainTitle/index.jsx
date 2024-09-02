@@ -56,7 +56,7 @@ const MainTitle = ({ type, title, description, icon, date, tags }) => {
       <Title>{title}</Title>
       {type === "main" && (
         <Callout>
-          <Icon iconName="TbSparkles" size="1.5rem" />
+          <Icon iconName="TbCode" size="1.5rem" />
           <CalloutTextWrapper>{description}</CalloutTextWrapper>
         </Callout>
       )}

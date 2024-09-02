@@ -8,7 +8,11 @@ export const NavProvider = ({ children }) => {
   const LocalIsNavFixed = window.localStorage.getItem("isNavFixed")
   const [isNavVisible, setIsNavVisible] = useState(false)
   const [isNavFixed, setIsNavFixed] = useState(
-    LocalIsNavFixed !== null ? JSON.parse(LocalIsNavFixed) : "true"
+    LocalIsNavFixed !== null
+      ? JSON.parse(LocalIsNavFixed)
+      : isMobile
+      ? false
+      : true
   )
 
   useEffect(() => {
