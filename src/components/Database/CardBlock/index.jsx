@@ -99,6 +99,11 @@ const Tag = styled.button`
 `
 
 const CardBlock = ({ to, title, date, icon, tags, detail }) => {
+  const handleTagClicked = (to, event) => {
+    event.stopPropagation()
+    navigate(`/tags/${to}/`)
+  }
+
   return (
     <CardWrapper onClick={() => navigate(to)}>
       <CardThumbnail>
@@ -108,7 +113,12 @@ const CardBlock = ({ to, title, date, icon, tags, detail }) => {
       <InfoWrapper>
         <InfoText>{date}</InfoText>
         <TagsWrapper>
-          {tags && tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
+          {tags &&
+            tags.map(tag => (
+              <Tag key={tag} onClick={event => handleTagClicked(tag, event)}>
+                {tag}
+              </Tag>
+            ))}
         </TagsWrapper>
         <InfoText>{truncateText(detail, 200)}</InfoText>
       </InfoWrapper>
