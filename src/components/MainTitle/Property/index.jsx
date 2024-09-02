@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import Icon from "../../Icon"
 import { author } from "../../../../blog-config"
+import { navigate } from "gatsby"
 
 const PropertyConatainer = styled.div`
   display: flex;
@@ -55,6 +56,19 @@ const PropertyValue = styled.div`
   }
 `
 
+const PropertyLink = styled.a`
+  flex: 1 1 auto;
+  height: 100%;
+  padding: 0.375rem 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 0.875em;
+  color: ${props => props.theme.weekText};
+  text-decoration: ${props => (props.$isActive ? "underline" : "none")};
+  cursor: ${props => (props.$isActive ? "pointer" : "default")};
+`
+
 const Tag = styled.button`
   height: 100%;
   display: flex;
@@ -72,7 +86,7 @@ const Tag = styled.button`
   transition: 20ms ease-in 0s;
 `
 
-const Property = ({ date, tags }) => {
+const Property = ({ date, tags, series }) => {
   return (
     <PropertyConatainer>
       <PropertyWrapper>
@@ -93,7 +107,12 @@ const Property = ({ date, tags }) => {
         <PropertyTitle>
           <Icon iconName="TbLayoutList" size="1rem" /> <span>Series</span>
         </PropertyTitle>
-        <PropertyValue>Series</PropertyValue>
+        <PropertyLink
+          $isActive={series}
+          onClick={() => navigate(`/series/${series}/`)}
+        >
+          {series || "-"}
+        </PropertyLink>
       </PropertyWrapper>
 
       <PropertyWrapper>

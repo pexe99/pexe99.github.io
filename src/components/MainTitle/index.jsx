@@ -49,7 +49,7 @@ const CalloutTextWrapper = styled.div`
   text-align: left;
 `
 
-const MainTitle = ({ type, title, description, icon, date, tags }) => {
+const MainTitle = ({ type, title, description, icon, date, tags, series }) => {
   return (
     <>
       <MainIcon iconName={icon} size="4.875rem" />
@@ -60,7 +60,7 @@ const MainTitle = ({ type, title, description, icon, date, tags }) => {
           <CalloutTextWrapper>{description}</CalloutTextWrapper>
         </Callout>
       )}
-      {type === "post" && <Property date={date} tags={tags} />}
+      {type === "post" && <Property date={date} tags={tags} series={series} />}
     </>
   )
 }
