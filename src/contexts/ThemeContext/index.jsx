@@ -1,12 +1,17 @@
 import { lightTheme, darkTheme } from "../../themes/colors"
-import React, { createContext, useState } from "react"
+import React, { createContext, useState, useEffect } from "react"
 import { ThemeProvider as StyledProvider } from "styled-components"
 
 const ThemeContext = createContext({})
 
 const ThemeProvider = ({ children }) => {
-  const LocalTheme = window.localStorage.getItem("theme") || "light"
-  const [ThemeMode, setThemeMode] = useState(LocalTheme)
+  const [ThemeMode, setThemeMode] = useState("light")
+
+  useEffect(() => {
+    const LocalTheme = window.localStorage.getItem("theme") || "light"
+    setThemeMode(LocalTheme)
+  }, [])
+
   const themeObject = ThemeMode === "light" ? lightTheme : darkTheme
 
   const toggleTheme = () => {
