@@ -1,37 +1,24 @@
-import React, { createContext, useState, useCallback, useEffect } from "react"
+import React, { createContext, useState, useRef, useEffect } from "react"
 
 const TOAST_ACTIVE_TIME = 5000
 const ToastContext = createContext()
 
 const ToastProvider = ({ children }) => {
   const [toast, setToast] = useState(null)
-  const [timer, setTimer] = useState(null)
+  const timer = useRef(null)
 
-  const addToast = useCallback(
-    message => {
-      if (timer) {
-        clearTimeout(timer)
-        setToast(null)
-      }
-      setTimeout(() => {
-        setToast({ message, id: Date.now() })
-      }, 0)
-      setTimer(
-        setTimeout(() => {
-          setToast(null)
-        }, TOAST_ACTIVE_TIME)
-      )
-    },
-    [timer]
-  )
+  const addToast = message => {
+    setToast({ message, id: Date.now() })
+  }
 
   useEffect(() => {
-    return () => {
-      if (timer) {
-        clearTimeout(timer)
-      }
+    if (toast !== null) {
+      clearTimeout(timer.current)
+      timer.current = setTimeout(() => {
+        setToast(null)
+      }, TOAST_ACTIVE_TIME)
     }
-  }, [timer])
+  }, [toast])
 
   return (
     <ToastContext.Provider value={{ addToast, toast }}>

@@ -38,8 +38,8 @@ const ToastWrapper = styled.div`
   user-select: none;
 `
 
-const Toast = ({ message }) => {
-  return <ToastWrapper>{message}</ToastWrapper>
+const Toast = ({ toast }) => {
+  return <ToastWrapper key={toast.id}>{toast.message}</ToastWrapper>
 }
 
 export default Toast

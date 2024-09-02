@@ -108,7 +108,7 @@ const Header = () => {
     navigator.clipboard
       .writeText(window.location.href)
       .then(() => addToast("Copy link complete"))
-      .catch(err => console.error("COPY FAILED ", err))
+      .catch(err => alert("COPY FAILED ", err))
   }
 
   return (
