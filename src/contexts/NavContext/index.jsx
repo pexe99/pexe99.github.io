@@ -6,7 +6,7 @@ export const NavContext = createContext()
 export const NavProvider = ({ children }) => {
   const { isMobile } = useContext(MobileContext)
   const [isNavVisible, setIsNavVisible] = useState(false)
-  const [isNavFixed, setIsNavFixed] = useState(isMobile ? false : true)
+  const [isNavFixed, setIsNavFixed] = useState(false)
 
   useEffect(() => {
     const LocalIsNavFixed =
