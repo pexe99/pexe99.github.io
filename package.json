@@ -32,7 +32,6 @@
     "styled-reset": "^4.5.2"
   },
   "devDependencies": {
-    "gh-pages": "^6.2.0",
     "prettier": "^2.8.8"
   },
   "keywords": [
@@ -47,8 +46,7 @@
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "deploy": "gatsby build && gh-pages -d public -b main"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "repository": {
     "type": "git",
