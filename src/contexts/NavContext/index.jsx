@@ -6,26 +6,25 @@ export const NavContext = createContext()
 export const NavProvider = ({ children }) => {
   const { isMobile } = useContext(MobileContext)
   const [isNavVisible, setIsNavVisible] = useState(false)
-  const [isNavFixed, setIsNavFixed] = useState(false)
+  const [isNavFixed, setIsNavFixed] = useState(null)
 
   useEffect(() => {
-    const LocalIsNavFixed =
-      typeof window !== "undefined"
-        ? window.localStorage.getItem("isNavFixed")
-        : null
-    if (LocalIsNavFixed !== null) {
-      setIsNavFixed(JSON.parse(LocalIsNavFixed))
+    if (typeof window !== "undefined" && !isMobile) {
+      const LocalIsNavFixed = window.localStorage.getItem("isNavFixed")
+      if (LocalIsNavFixed !== null) {
+        setIsNavFixed(JSON.parse(LocalIsNavFixed))
+      }
     }
-  }, [])
+  }, [isMobile])
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== "undefined" && !isMobile && isNavFixed !== null) {
       window.localStorage.setItem("isNavFixed", isNavFixed)
     }
-  }, [isNavFixed])
+  }, [isNavFixed, isMobile])
 
   useEffect(() => {
-    if (!isMobile && typeof window !== "undefined") {
+    if (isMobile !== null && !isMobile && typeof window !== "undefined") {
       const handleMouseMove = event => {
         const threshold =
           isNavVisible || isNavFixed
