@@ -3,10 +3,10 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `LellowMellow-blog`,
+    title: `lellowmellow-blog`,
     description: ``,
     author: `@LellowMellow`,
-    siteUrl: ``,
+    siteUrl: `https://lellowmellow.github.io/`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,
