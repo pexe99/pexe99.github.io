@@ -2,9 +2,9 @@ import * as React from "react"
 import { useState, useEffect } from "react"
 import Icon from "../Icon/index.jsx"
 import ReactDOMServer from "react-dom/server"
-import OgImage from "../OgImage/index.jsx"
 import { Helmet } from "react-helmet"
 import { author } from "../../../blog-config.js"
+import OgImageUrl from "../../assets/images/og-image.png"
 
 const Seo = ({ title, description, url, icon }) => {
   const [theme, setTheme] = useState("light")
@@ -17,7 +17,6 @@ const Seo = ({ title, description, url, icon }) => {
   }, [])
 
   const iconColor = theme === "dark" ? "rgb(211, 211, 211)" : "#55534e"
-  const ogImageUrl = OgImage({ icon })
 
   const iconSvg = ReactDOMServer.renderToStaticMarkup(
     <Icon iconName={icon} style={{ color: iconColor }} />
