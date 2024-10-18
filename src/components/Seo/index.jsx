@@ -33,12 +33,12 @@ const Seo = ({ title, description, url, icon }) => {
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={url} />
-      <meta property="og:image" content={ogImageUrl} />
+      <meta property="og:image" content={OgImageUrl} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content={author} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImageUrl} />
+      <meta name="twitter:image" content={OgImageUrl} />
       <meta name="theme-color" content="currentColor" />
       <meta
         name="apple-mobile-web-app-status-bar-style"
