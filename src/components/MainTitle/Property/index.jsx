@@ -122,7 +122,10 @@ const Property = ({ date, tags, series }) => {
         <PropertyValue>
           {tags
             ? tags.map(tag => (
-                <Tag key={tag} onClick={() => navigate(`/tags/${tag}/`)}>
+                <Tag
+                  key={tag}
+                  onClick={() => navigate(`/tags/${tag.replace(/\s+/g, "-")}/`)}
+                >
                   {tag}
                 </Tag>
               ))
