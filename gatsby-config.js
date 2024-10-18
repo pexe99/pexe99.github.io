@@ -23,6 +23,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://lellowmellow.github.io/`,
+        stripQueryString: true,
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-starter-default`,
