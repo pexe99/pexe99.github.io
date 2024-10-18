@@ -4,7 +4,7 @@ import Icon from "../Icon/index.jsx"
 import ReactDOMServer from "react-dom/server"
 import { Helmet } from "react-helmet"
 import { author } from "../../../blog-config.js"
-import OgImageUrl from "../../assets/images/og-image.png"
+import OgImageUrl from "../../assets/images/ogimage.png"
 
 const Seo = ({ title, description, url, icon }) => {
   const [theme, setTheme] = useState("light")
