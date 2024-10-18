@@ -2,7 +2,7 @@ import * as React from "react"
 import { Helmet } from "react-helmet"
 import { author } from "../../../blog-config.js"
 
-const SEO = ({ title, description, url }) => {
+const Seo = ({ title, description, url }) => {
   return (
     <Helmet>
       <meta charset="UTF-8" />
@@ -33,4 +33,4 @@ const SEO = ({ title, description, url }) => {
   )
 }
 
-export default SEO
+export default Seo

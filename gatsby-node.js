@@ -4,7 +4,6 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
-  // GraphQL 쿼리로 포스트, 태그, 시리즈 데이터를 가져옵니다.
   const result = await graphql(`
     {
       postsRemark: allMarkdownRemark(
@@ -70,7 +69,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Create series pages
   series.forEach(singleSeries => {
     createPage({
-      path: `/series/${singleSeries.fieldValue}/`,
+      path: `/series/${seriesSlug}/`,
       component: path.resolve(`./src/templates/series.jsx`),
       context: {
         series: singleSeries.fieldValue,
@@ -81,7 +80,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Create tag pages
   tags.forEach(tag => {
     createPage({
-      path: `/tags/${tag.fieldValue}/`,
+      path: `/tags/${tagSlug}/`,
       component: path.resolve(`./src/templates/tags.jsx`),
       context: {
         tag: tag.fieldValue,

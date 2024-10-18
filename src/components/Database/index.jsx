@@ -68,7 +68,7 @@ const Database = ({
       if (series)
         return {
           key: item.fieldValue,
-          to: `/series/${item.fieldValue}/`,
+          to: `/series/${item.fieldValue.replace(/\s+/g, "-")}/`,
           icon: "TbFolderOpen",
           title: item.fieldValue,
           post: item.totalCount,
