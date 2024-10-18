@@ -1,17 +1,24 @@
 import React from "react"
 import { graphql } from "gatsby"
+import SEO from "../components/SEO"
 import MainTitle from "../components/MainTitle"
 import MarkdownWrapper from "../components/MarkdownWrapper"
 import PostLinks from "../components/PostLinks"
 import Toc from "../components/TableOfContents"
+import { metaDescription, siteUrl } from "../../blog-config"
 
 const PostTemplate = ({ data }) => {
   const post = data.markdownRemark
-  const { frontmatter, html } = post
+  const { frontmatter, fields, html } = post
   const { previous, next } = data
 
   return (
     <>
+      <SEO
+        title={frontmatter.title}
+        description={metaDescription}
+        url={`${siteUrl}${fields.slug}`}
+      />
       <MainTitle
         type="post"
         title={frontmatter.title}
@@ -36,6 +43,9 @@ export const query = graphql`
         series
         icon
         tags
+      }
+      fields {
+        slug
       }
       html
     }

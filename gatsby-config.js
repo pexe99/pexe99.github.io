@@ -6,7 +6,7 @@ module.exports = {
     title: `lellowmellow-blog`,
     description: `lellowmellow(DongRyeong Lee)'s tech blog`,
     author: `@LellowMellow`,
-    siteUrl: `https://lellowmellow.github.io/`,
+    siteUrl: `https://lellowmellow.github.io`,
   },
   plugins: [
     // gatsby plugins
@@ -25,7 +25,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        siteUrl: `https://lellowmellow.github.io/`,
+        siteUrl: `https://lellowmellow.github.io`,
         stripQueryString: true,
       },
     },

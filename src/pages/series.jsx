@@ -1,12 +1,19 @@
 import React from "react"
+import SEO from "../components/SEO"
 import MainTitle from "../components/MainTitle"
-import { graphql } from "gatsby"
 import Database from "../components/Database"
+import { graphql } from "gatsby"
+import { metaDescription, siteUrl } from "../../blog-config.js"
 
 const SeriesPage = ({ data }) => {
   const seriesList = data.allMarkdownRemark.group
   return (
     <>
+      <SEO
+        title="Series"
+        description={metaDescription}
+        url={`${siteUrl}/series/`}
+      />
       <MainTitle
         type="main"
         title="Series"

@@ -10,11 +10,17 @@ module.exports = {
   description:
     "안녕하세요, Web Front-end 개발자 지망생 이동령(LellowMellow) 입니다. 해당 블로그는 Front-end 와 관련해 학습한 결과와 경험들을 모아놓은 공간입니다.",
 
-  // blog name
+  // Meta tage description
+  metaDescription: "Festina lente, Make haste slowly",
+
+  // Blog name
   blogName: "LellowMellow.dev",
 
   // Post author name
   author: "LellowMellow",
+
+  // Blog site url
+  siteUrl: "https://lellowmellow.github.io",
 
   // Icons
   // Enter the desired Icon name in the field below the link.

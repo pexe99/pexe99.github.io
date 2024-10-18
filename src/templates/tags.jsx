@@ -1,7 +1,9 @@
 import React from "react"
 import { graphql } from "gatsby"
+import SEO from "../components/SEO"
 import MainTitle from "../components/MainTitle"
 import Database from "../components/Database"
+import { metaDescription, siteUrl } from "../../blog-config"
 
 const TagTemplate = ({ data, pageContext }) => {
   const { tag } = pageContext
@@ -9,6 +11,11 @@ const TagTemplate = ({ data, pageContext }) => {
 
   return (
     <>
+      <SEO
+        title={`Tag↘${tag}`}
+        description={metaDescription}
+        url={`${siteUrl}/tags/${tag}/`}
+      />
       <MainTitle
         type="main"
         title={`Tag ↘\n${tag}`}

@@ -1,9 +1,15 @@
 import * as React from "react"
-import Seo from "../components/seo"
+import SEO from "../components/SEO/index.jsx"
 import MainTitle from "../components/MainTitle"
 import Database from "../components/Database/index.jsx"
 import { graphql } from "gatsby"
-import { title, description, mainIcon } from "../../blog-config.js"
+import {
+  title,
+  description,
+  metaDescription,
+  mainIcon,
+  siteUrl,
+} from "../../blog-config.js"
 
 const IndexPage = ({ data }) => {
   const initialPosts = data.allMarkdownRemark.edges
@@ -16,6 +22,7 @@ const IndexPage = ({ data }) => {
         description={description}
         icon={mainIcon}
       />
+      <SEO title={title} description={metaDescription} url={siteUrl} />
       <Database data={initialPosts} main />
     </>
   )
@@ -43,5 +50,4 @@ export const query = graphql`
   }
 `
 
-export const Head = () => <Seo title="Home" />
 export default IndexPage

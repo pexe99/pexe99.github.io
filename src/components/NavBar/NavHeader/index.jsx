@@ -87,7 +87,7 @@ const NavHeader = () => {
         <span>{blogName}</span>
       </BlogTitle>
       {isNavFixed && !isMobile && (
-        <HeaderButton onClick={() => setIsNavFixed(false)}>
+        <HeaderButton onClick={() => setIsNavFixed(false)} aria-label="close">
           <Icon
             iconName="TbChevronsLeft"
             className="closeButton"
@@ -95,7 +95,7 @@ const NavHeader = () => {
           />
         </HeaderButton>
       )}
-      <HeaderButton>
+      <HeaderButton aria-label="write">
         <Icon iconName="TbEdit" size="1.25rem" />
       </HeaderButton>
     </HeaderWrapper>
