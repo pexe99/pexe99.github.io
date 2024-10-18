@@ -1,5 +1,5 @@
 import * as React from "react"
-import Seo from "../components/SEO/index.jsx"
+import Seo from "../components/Seo"
 import MainTitle from "../components/MainTitle"
 import Database from "../components/Database/index.jsx"
 import { graphql } from "gatsby"
