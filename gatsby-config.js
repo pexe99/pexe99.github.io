@@ -4,7 +4,7 @@
 module.exports = {
   siteMetadata: {
     title: `lellowmellow-blog`,
-    description: ``,
+    description: `lellowmellow(DongRyeong Lee)'s tech blog`,
     author: `@LellowMellow`,
     siteUrl: `https://lellowmellow.github.io/`,
   },

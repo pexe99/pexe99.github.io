@@ -1,7 +1,7 @@
 {
   "name": "lellowmellow-blog",
   "private": true,
-  "description": "",
+  "description": "lellowmellow(DongRyeong Lee)'s tech blog",
   "version": "0.1.0",
   "author": "LellowMellow <dr11291129@gmail.com>",
   "dependencies": {

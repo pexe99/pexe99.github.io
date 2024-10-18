@@ -4,14 +4,14 @@ module.exports = {
   // ######################
 
   // Main page title
-  title: "WELCOME, IT’S YOUR OWN BLOG",
+  title: "LellowMellow Tech Blog",
 
   // Main page description (callout)
   description:
-    "A Gatsby Starter Project to create your own dev blog with a minimalist Notion-inspired theme. Built by a Notion fan.",
+    "안녕하세요, Web Front-end 개발자 지망생 이동령(LellowMellow) 입니다. 해당 블로그는 Front-end 와 관련해 학습한 결과와 경험들을 모아놓은 공간입니다.",
 
   // blog name
-  blogName: "Notionant.dev",
+  blogName: "LellowMellow.dev",
 
   // Post author name
   author: "LellowMellow",
@@ -22,7 +22,7 @@ module.exports = {
   // https://react-icons.github.io/react-icons/icons/tb/
   // main: Main page icon
   // profile: Navigation bar author icon
-  mainIcon: "TbBrain",
+  mainIcon: "TbTopologyStarRing3",
 
   // ######################
   // Required Section End
@@ -41,7 +41,7 @@ module.exports = {
     youtube: "",
     x: "",
     threads: "",
-    instagram: "",
+    instagram: "https://www.instagram.com/lell0w_mell0w/",
     gmail: "mailto:dr11291129@gmail.com",
   },
 
@@ -49,9 +49,7 @@ module.exports = {
   // Feel free to add new keys if necessary.
   // If not using a key, leave it as an empty object.
   // Example: { icon: "TbBrandTiktok", title: "Tiktok", url: "https://www.tiktok.com/" }
-  additionalLinks: [
-    { icon: "TbBrandTiktok", title: "Tiktok", url: "https://www.tiktok.com/" },
-  ],
+  additionalLinks: [],
 
   // ######################
   // Optional Section End
