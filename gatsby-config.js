@@ -9,11 +9,12 @@ module.exports = {
     siteUrl: `https://lellowmellow.github.io/`,
   },
   plugins: [
+    // gatsby plugins
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-catch-links`,
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-image`,
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: "gatsby-plugin-robots-txt",
@@ -35,6 +36,8 @@ module.exports = {
         icon: `src/assets/icons/image.png`, // This path is relative to the root of the site.
       },
     },
+    // transformer
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -104,6 +107,7 @@ module.exports = {
         ],
       },
     },
+    // etc
     {
       resolve: `gatsby-source-filesystem`,
       options: {
