@@ -15,6 +15,7 @@ const TagTemplate = ({ data, pageContext }) => {
         title={`Tag↘${tag}`}
         description={metaDescription}
         url={`${siteUrl}/tags/${tag}/`}
+        icon="TbHash"
       />
       <MainTitle
         type="main"

@@ -1,5 +1,5 @@
 import * as React from "react"
-import Seo from "../components/Seo"
+import Seo from "../components/SEO/index.jsx"
 import MainTitle from "../components/MainTitle"
 import Database from "../components/Database/index.jsx"
 import { graphql } from "gatsby"
@@ -16,7 +16,12 @@ const IndexPage = ({ data }) => {
 
   return (
     <>
-      <Seo title={title} description={metaDescription} url={siteUrl} />
+      <Seo
+        title={title}
+        description={metaDescription}
+        url={siteUrl}
+        icon={mainIcon}
+      />
       <MainTitle
         type="main"
         title={title}

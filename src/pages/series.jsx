@@ -13,6 +13,7 @@ const SeriesPage = ({ data }) => {
         title="Series"
         description={metaDescription}
         url={`${siteUrl}/series/`}
+        icon="TbLayoutList"
       />
       <MainTitle
         type="main"

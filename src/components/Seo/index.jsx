@@ -1,8 +1,27 @@
 import * as React from "react"
+import { useState, useEffect } from "react"
+import Icon from "../Icon/index.jsx"
+import ReactDOMServer from "react-dom/server"
 import { Helmet } from "react-helmet"
 import { author } from "../../../blog-config.js"
 
-const Seo = ({ title, description, url }) => {
+const Seo = ({ title, description, url, icon }) => {
+  const [theme, setTheme] = useState("light")
+
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme")
+    if (storedTheme) {
+      setTheme(storedTheme)
+    }
+  }, [])
+
+  const iconColor = theme === "dark" ? "rgb(211, 211, 211)" : "#55534e"
+
+  const iconSvg = ReactDOMServer.renderToStaticMarkup(
+    <Icon iconName={icon} style={{ color: iconColor }} />
+  )
+  const iconDataUrl = `data:image/svg+xml,${encodeURIComponent(iconSvg)}`
+
   return (
     <Helmet>
       <meta charset="UTF-8" />
@@ -29,6 +48,7 @@ const Seo = ({ title, description, url }) => {
         content="width=device-width, initial-scale=1, viewport-fit=cover"
       />
       <meta name="mobile-web-app-capable" content="yes" />
+      <link rel="icon" href={iconDataUrl} />
     </Helmet>
   )
 }

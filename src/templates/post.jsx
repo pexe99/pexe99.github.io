@@ -18,6 +18,7 @@ const PostTemplate = ({ data }) => {
         title={frontmatter.title}
         description={metaDescription}
         url={`${siteUrl}${fields.slug}`}
+        icon={frontmatter.icon}
       />
       <MainTitle
         type="post"

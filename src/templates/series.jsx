@@ -15,6 +15,7 @@ const SeriesTemplate = ({ data, pageContext }) => {
         title={`Series↗${series}`}
         description={metaDescription}
         url={`${siteUrl}/series/${series}/`}
+        icon="TbFolderOpen"
       />
       <MainTitle
         type="main"
