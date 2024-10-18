@@ -68,6 +68,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // Create series pages
   series.forEach(singleSeries => {
+    const seriesSlug = singleSeries.fieldValue.replace(/\s+/g, "-")
     createPage({
       path: `/series/${seriesSlug}/`,
       component: path.resolve(`./src/templates/series.jsx`),
@@ -79,6 +80,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // Create tag pages
   tags.forEach(tag => {
+    const tagSlug = tag.fieldValue.replace(/\s+/g, "-")
     createPage({
       path: `/tags/${tagSlug}/`,
       component: path.resolve(`./src/templates/tags.jsx`),

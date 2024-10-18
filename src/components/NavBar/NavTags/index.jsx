@@ -111,7 +111,10 @@ const NavTags = ({ tags, customNavigate }) => {
       <TagWrapper ref={navRef}>
         <TagTitle>Tags</TagTitle>
         {tags?.map(tag => (
-          <TagButton key={tag} onClick={() => customNavigate(`/tags/${tag}/`)}>
+          <TagButton
+            key={tag}
+            onClick={() => customNavigate(`/tags/${tag.replace(/\s+/g, "-")}/`)}
+          >
             <Icon className="tagIcon" iconName="TbHash" size="1.25rem" />
             <Icon className="arrowIcon" iconName="TbChevronRight" size="1rem" />
             <span>{tag}</span>
