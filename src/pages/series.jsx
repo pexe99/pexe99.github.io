@@ -1,5 +1,5 @@
 import React from "react"
-import SEO from "../components/SEO"
+import Seo from "../components/Seo"
 import MainTitle from "../components/MainTitle"
 import Database from "../components/Database"
 import { graphql } from "gatsby"
@@ -9,7 +9,7 @@ const SeriesPage = ({ data }) => {
   const seriesList = data.allMarkdownRemark.group
   return (
     <>
-      <SEO
+      <Seo
         title="Series"
         description={metaDescription}
         url={`${siteUrl}/series/`}

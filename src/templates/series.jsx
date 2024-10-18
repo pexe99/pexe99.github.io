@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import SEO from "../components/SEO"
+import Seo from "../components/Seo"
 import MainTitle from "../components/MainTitle"
 import Database from "../components/Database"
 import { metaDescription, siteUrl } from "../../blog-config"
@@ -11,7 +11,7 @@ const SeriesTemplate = ({ data, pageContext }) => {
 
   return (
     <>
-      <SEO
+      <Seo
         title={`Series↗${series}`}
         description={metaDescription}
         url={`${siteUrl}/series/${series}/`}

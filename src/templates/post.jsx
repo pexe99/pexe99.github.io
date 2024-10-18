@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import SEO from "../components/SEO"
+import Seo from "../components/Seo"
 import MainTitle from "../components/MainTitle"
 import MarkdownWrapper from "../components/MarkdownWrapper"
 import PostLinks from "../components/PostLinks"
@@ -14,7 +14,7 @@ const PostTemplate = ({ data }) => {
 
   return (
     <>
-      <SEO
+      <Seo
         title={frontmatter.title}
         description={metaDescription}
         url={`${siteUrl}${fields.slug}`}
