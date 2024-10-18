@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://lellowmellow.github.io/sitemap-index.xml
+Host: https://lellowmellow.github.io
