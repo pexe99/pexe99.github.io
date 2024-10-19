@@ -256,6 +256,7 @@ export const MarkdownStyler = styled.section`
     margin: 0.25rem auto;
     border-radius: 0.125rem;
     max-width: 100%;
+    background-color: ${props => props.theme.background};
   }
 
   .gatsby-resp-image-wrapper {
