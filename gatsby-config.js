@@ -29,6 +29,18 @@ module.exports = {
         stripQueryString: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `lellowmellow-blog`,
+        short_name: `lellowmellow`,
+        start_url: `/`,
+        background_color: `rgb(256, 256, 256)`,
+        theme_color: `rgb(256, 256, 256)`,
+        display: `minimal-ui`,
+        icon: `static/favicon.ico`,
+      },
+    },
     // transformer
     `gatsby-transformer-sharp`,
     {

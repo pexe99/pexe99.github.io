@@ -6,7 +6,7 @@ This is the codebase for my personal tech blog.
 
 > **Inspired by [gatsby-starter-hoodie](https://github.com/devHudi/gatsby-starter-hoodie) and Notion.**
 
-Developed a big fan of Notion.
+Developed by a big fan of Notion.
 
 ## Tech Stack
 
