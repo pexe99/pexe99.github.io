@@ -38,7 +38,7 @@ module.exports = {
         background_color: `rgb(256, 256, 256)`,
         theme_color: `rgb(256, 256, 256)`,
         display: `minimal-ui`,
-        icon: `static/favicon.ico`,
+        icon: `static/favicon.png`,
       },
     },
     // transformer
