@@ -1,7 +1,6 @@
 ---
 title: "git commit을 입력하면 일어나는 일"
 date: "2023-07-29"
-series: ""
 icon: "TbBrandGithub"
 tags:
   - git
