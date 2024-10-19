@@ -12,8 +12,9 @@ const MobileProvider = ({ children }) => {
         "ontouchstart" in window || navigator.maxTouchPoints > 0
 
       return (
-        isTouchDevice &&
-        (/android/i.test(userAgent) || /iPad|iPhone|iPod/.test(userAgent))
+        isTouchDevice ||
+        /android/i.test(userAgent) ||
+        /iPad|iPhone|iPod/.test(userAgent)
       )
     }
 
