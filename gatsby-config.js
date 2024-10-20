@@ -35,8 +35,6 @@ module.exports = {
         name: `lellowmellow-blog`,
         short_name: `lellowmellow`,
         start_url: `/`,
-        background_color: `rgb(256, 256, 256)`,
-        theme_color: `rgb(256, 256, 256)`,
         display: `minimal-ui`,
         icon: `static/favicon.png`,
       },
