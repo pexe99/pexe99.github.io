@@ -1,7 +1,9 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import { navigate } from "gatsby"
 import Icon from "../../Icon"
+import { MobileContext } from "../../../contexts/MobileContext"
+import { NavContext } from "../../../contexts/NavContext"
 
 const ResultWrapper = styled.div`
   width: 100%;
@@ -114,8 +116,12 @@ const NoResult = styled.div`
 `
 
 const ResultBlock = ({ results, $setSearchModalActive }) => {
+  const { isMobile } = useContext(MobileContext)
+  const { setIsNavFixed } = useContext(NavContext)
+
   const handleBlockClicked = to => {
     $setSearchModalActive(false)
+    if (isMobile) setIsNavFixed(false)
     navigate(to)
   }
 
