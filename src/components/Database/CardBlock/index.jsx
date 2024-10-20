@@ -101,7 +101,7 @@ const Tag = styled.button`
 const CardBlock = ({ to, title, date, icon, tags, detail }) => {
   const handleTagClicked = (to, event) => {
     event.stopPropagation()
-    navigate(`/tags/${to}/`)
+    navigate(`/tags/${to.replace(/\s+/g, "-")}/`)
   }
 
   return (
