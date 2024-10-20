@@ -56,6 +56,7 @@ export const lightTheme = {
   searchIconHover: "rgba(55, 53, 47, 0.06)",
   searchDivider: "rgba(55, 53, 47, 0.09) 0 0.0625rem 0",
   searchText: "rgba(55, 53, 47, 0.5)",
+  searchResultTitle: "rgb(120, 119, 116)",
 
   // toc
   tocLinkText: "rgb(120, 119, 116)",
@@ -140,6 +141,7 @@ export const darkTheme = {
   searchIconHover: "rgba(255, 255, 255, 0.055)",
   searchDivider: "rgba(255, 255, 255, 0.094) 0 0.0625rem 0",
   searchText: "rgba(255, 255, 255, 0.282)",
+  searchResultTitle: "rgb(127, 127, 127)",
 
   // toc
   tocLinkText: "rgb(155, 155, 155)",

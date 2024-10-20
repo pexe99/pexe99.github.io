@@ -1,6 +1,8 @@
-import React, { useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import Icon from "../../Icon"
+import { graphql, useStaticQuery } from "gatsby"
+import ResultBlock from "./ResultBlock"
 
 const Dimmer = styled.div`
   position: fixed;
@@ -33,6 +35,7 @@ const DialogWrapper = styled.div`
 `
 
 const SearchBarWrapper = styled.div`
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   padding: 0 1rem 0 1rem;
@@ -86,34 +89,49 @@ const CloseButton = styled.button`
   transition: 20ms ease-in 0s;
 `
 
-const NoResult = styled.div`
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  text-align: center;
-  span:nth-child(1) {
-    font-weight: 500;
-    color: ${props => props.theme.weekText};
-  }
-  span:nth-child(2) {
-    color: ${props => props.theme.searchText};
-  }
-  button {
-    line-height: 1.5;
-    font-size: 0.875rem;
-    color: ${props => props.theme.blue};
-  }
-`
-
 const SearchDialog = ({ $setSearchModalActive }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      allMarkdownRemark {
+        nodes {
+          id
+          frontmatter {
+            title
+            icon
+            date(formatString: "MMMM DD, YYYY")
+          }
+          fields {
+            slug
+          }
+          rawMarkdownBody
+        }
+      }
+    }
+  `)
+
+  const allPosts = data.allMarkdownRemark.nodes
+  const inputRef = useRef()
   const [inputText, setInputText] = useState("")
+  const [results, setResults] = useState([])
+
+  useEffect(() => {
+    inputRef.current.focus()
+  }, [])
 
   const handleChange = e => {
-    setInputText(e.target.value)
+    const query = e.target.value
+    setInputText(query)
+
+    if (query.length > 0) {
+      const filteredResults = allPosts.filter(
+        post =>
+          post.frontmatter.title.toLowerCase().includes(query.toLowerCase()) ||
+          post.rawMarkdownBody.toLowerCase().includes(query.toLowerCase())
+      )
+      setResults(filteredResults)
+    } else {
+      setResults([])
+    }
   }
 
   const handleErase = () => {
@@ -130,6 +148,7 @@ const SearchDialog = ({ $setSearchModalActive }) => {
             placeholder="Search on the blog"
             value={inputText}
             onChange={handleChange}
+            ref={inputRef}
           />
           <EraseButton onClick={handleErase}>
             <Icon iconName="TbXboxXFilled" size="1rem" />
@@ -139,13 +158,10 @@ const SearchDialog = ({ $setSearchModalActive }) => {
           </CloseButton>
         </SearchBarWrapper>
 
-        <NoResult>
-          <span>No Results</span>
-          <span>There are no pages related to the keyword you entered.</span>
-          <button onClick={() => $setSearchModalActive(false)}>
-            Close search window
-          </button>
-        </NoResult>
+        <ResultBlock
+          results={results}
+          $setSearchModalActive={$setSearchModalActive}
+        />
       </DialogWrapper>
     </>
   )
