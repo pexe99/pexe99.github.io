@@ -3,7 +3,7 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `lellowmellow-blog`,
+    title: `개발자 이동령`,
     description: `lellowmellow(DongRyeong Lee)'s tech blog`,
     author: `@LellowMellow`,
     siteUrl: `https://lellowmellow.github.io`,

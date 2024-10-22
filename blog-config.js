@@ -4,7 +4,7 @@ module.exports = {
   // ######################
 
   // Main page title
-  title: "LellowMellow Tech Blog",
+  title: "개발자 이동령",
 
   // Main page description (callout)
   description:
