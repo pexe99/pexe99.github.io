@@ -20,7 +20,7 @@ module.exports = {
       resolve: "gatsby-plugin-robots-txt",
       options: {
         host: `https://lellowmellow.github.io`,
-        sitemap: `https://lellowmellow.github.io/sitemap.xml`,
+        sitemap: `https://lellowmellow.github.io/sitemap-0.xml`,
         policy: [{ userAgent: "*", allow: "/" }],
       },
     },
