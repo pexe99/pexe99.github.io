@@ -49,6 +49,10 @@ const Seo = ({ title, description, url, icon }) => {
         content="width=device-width, initial-scale=1, viewport-fit=cover"
       />
       <meta name="mobile-web-app-capable" content="yes" />
+      <meta
+        name="google-site-verification"
+        content="X5LYLMhPo_NbchN2Z4rbFrQRN5KdDG_Pa-FjD1TIPH0"
+      />
       <link rel="icon" href={iconDataUrl} />
     </Helmet>
   )
