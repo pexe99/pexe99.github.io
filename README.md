@@ -1,4 +1,4 @@
-# LellowMellow Blog
+# pexe99 Blog
 
 ![thumbnail](./thumbnail.png)
 
@@ -19,7 +19,7 @@ Developed by a big fan of Notion.
 ## File Structure
 
 ```
-LellowMellow-blog/
+pexe99-blog/
 ├── contents/
 │   └── posts/
 │       └── example-post/
